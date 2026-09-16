@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TecWeek ED 2026 — Tecnología, educación y nuevas formas de aprender</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="logo">
+      <img src="assets/logo-mark.png" alt="Tecweek ED Buenos Aires" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#charlas-tec">Charlas TEC</a>
+      <a href="#foro-tec">Foro TEC</a>
+      <a href="#inteligencia-creativa">Inteligencia Creativa</a>
+      <a href="#inteligencia-aplicada">Inteligencia Aplicada</a>
+      <a href="#inteligencia-expandida">Inteligencia Expandida</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="AGENDA_PDF_PENDIENTE.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Agenda</a>
+      <a href="#pit" class="btn btn-ghost">Premios PIT</a>
+      <a href="LINK_INSCRIPCION_PENDIENTE" class="btn btn-primary" target="_blank" rel="noopener">Inscribirme</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== BANNER PRINCIPAL ===== -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Tecnología e innovación educativa · Ciudad de Buenos Aires</p>
+      <h1 class="hero-title">El futuro de aprender<br>se construye hoy</h1>
+      <p class="hero-subtitle">
+        Una jornada para imaginar la escuela que viene, con la inteligencia artificial
+        como eje central. Gratuita y abierta a toda la comunidad educativa de la Ciudad.
+      </p>
+
+      <div class="hero-actions">
+        <a href="LINK_INSCRIPCION_PENDIENTE" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Inscribirme</a>
+        <a href="AGENDA_PDF_PENDIENTE.pdf" class="btn btn-outline btn-lg" target="_blank" rel="noopener">Ver agenda</a>
+        <a href="#faq" class="btn btn-text">Preguntas frecuentes</a>
+      </div>
+
+      <div class="hero-meta">
+        <span class="meta-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          Viernes 30 de octubre · 8 a 18 h
+        </span>
+        <span class="meta-item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+          Usina del Arte, La Boca
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <img src="assets/hero-vr.png" alt="Estudiante usando visor de realidad virtual" class="hero-photo">
+      <div class="hero-media-overlay">
+        <ul class="hero-words hero-words-lg">
+          <li>Aprender</li>
+          <li>Crear</li>
+          <li>Explorar</li>
+          <li>Encontrarse</li>
+        </ul>
+        <span class="hero-words-divider"></span>
+        <ul class="hero-words hero-words-sm">
+          <li>Ideas</li>
+          <li>Tecnologías</li>
+          <li>Personas</li>
+          <li>Escuela</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-days">00</span>
+        <span class="countdown-label">Días</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-hours">00</span>
+        <span class="countdown-label">Horas</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-minutes">00</span>
+        <span class="countdown-label">Minutos</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-seconds">00</span>
+        <span class="countdown-label">Segundos</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bar" aria-hidden="true">
+    <span class="bar-verde"></span><span class="bar-violeta"></span><span class="bar-turquesa"></span><span class="bar-naranja"></span><span class="bar-rosa"></span>
+  </div>
+</section>
+
+<!-- ===== UN EVENTO ÚNICO (4 EJES) ===== -->
+<section class="section ejes">
+  <div class="container ejes-grid">
+    <div class="ejes-text">
+      <h2>Un evento único para explorar y pensar la tecnología en educación</h2>
+      <p>
+        Durante la TecWeek ED vas a poder experimentar, formarte, escuchar especialistas,
+        intercambiar con colegas y descubrir nuevas ideas a través de propuestas para
+        toda la comunidad educativa.
+      </p>
+    </div>
+    <ul class="ejes-list">
+      <li class="eje eje-verde">Explorar</li>
+      <li class="eje eje-violeta">Crear</li>
+      <li class="eje eje-turquesa">Aprender</li>
+      <li class="eje eje-naranja">Encontrarse</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== CINCO EXPERIENCIAS ===== -->
+<section class="section experiencias" id="espacios">
+  <div class="container">
+    <p class="section-label">Las secciones</p>
+    <h2>Cinco experiencias, un mismo día</h2>
+    <p class="section-intro">
+      Elegí cómo recorrer la jornada: charlas, talleres y espacios para visitar,
+      aprender e interactuar.
+    </p>
+
+    <div class="cards-grid">
+      <article class="card card-verde" id="charlas-tec">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg>
+        </div>
+        <h3>Charlas TEC</h3>
+        <p>Grandes voces de la educación y la tecnología en el escenario principal.</p>
+        <ul>
+          <li>Charlas magistrales</li>
+          <li>Paneles de referentes</li>
+          <li>Espacios para aprender</li>
+        </ul>
+      </article>
+
+      <article class="card card-violeta" id="foro-tec">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="17" cy="8" r="2.6"/><path d="M16 14.2c2.8.4 5 2.6 5 5.8"/></svg>
+        </div>
+        <h3>Foro TEC</h3>
+        <p>Debate abierto entre docentes, líderes, startups y gobierno.</p>
+        <ul>
+          <li>Mesas de discusión</li>
+          <li>Talleres colaborativos</li>
+          <li>Espacios para interactuar</li>
+        </ul>
+      </article>
+
+      <article class="card card-turquesa" id="inteligencia-creativa">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M8.5 12.5a1.5 1.5 0 1 0 0-3M15.5 15.5a1.5 1.5 0 1 0 0-3"/></svg>
+        </div>
+        <h3>Inteligencia Creativa</h3>
+        <p>Arte, diseño y creatividad potenciados por la tecnología.</p>
+        <ul>
+          <li>Espacio Maker · Robot BA</li>
+          <li>Lab Lúdico · Lab Arte</li>
+          <li>Espacios para visitar</li>
+        </ul>
+      </article>
+
+      <article class="card card-naranja" id="inteligencia-aplicada">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM3 9h2M3 15h2M19 9h2M19 15h2M9 3v2M15 3v2M9 19v2M15 19v2"/></svg>
+        </div>
+        <h3>Inteligencia Aplicada</h3>
+        <p>IA y herramientas digitales al servicio del aula, hoy.</p>
+        <ul>
+          <li>Asistente IA</li>
+          <li>Premios a la Innovación Tecnológica (PIT)</li>
+          <li>Espacio Escuela Estación BA</li>
+        </ul>
+      </article>
+
+      <article class="card card-rosa" id="inteligencia-expandida">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="4.2" ry="10" transform="rotate(45 12 12)"/></svg>
+        </div>
+        <h3>Inteligencia Expandida</h3>
+        <p>Tecnologías para ampliar las formas de aprender y construir conocimiento.</p>
+        <ul>
+          <li>Sala TEC 1</li>
+          <li>Sala TEC 2</li>
+          <li>Espacios formativos</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOSQUE DE LAS DECISIONES ===== -->
+<section class="section franja franja-oscura" id="bosque">
+  <div class="container franja-grid">
+    <div class="franja-text">
+      <p class="section-label section-label-claro">Espacio TecWeek</p>
+      <h2 class="claro">El Bosque de las Decisiones</h2>
+      <p class="claro-sub">
+        Un espacio lúdico e interactivo para leer, jugar y enfrentar desafíos sobre
+        la vida digital, inspirado en la colección de cuentos <em>El Bosque de las
+        Decisiones</em>. Con propuestas para Nivel Inicial, Primario y Secundario.
+      </p>
+    </div>
+    <div class="franja-tags">
+      <span class="tag">Nivel Inicial</span>
+      <span class="tag">Primario</span>
+      <span class="tag">Secundario</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BIENESTAR TEC ===== -->
+<section class="section franja">
+  <div class="container franja-grid">
+    <div class="franja-text">
+      <p class="section-label">Espacio TecWeek</p>
+      <h2>Bienestar TEC</h2>
+      <p>Un espacio para hacer una pausa, descansar y encontrarse con colegas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STREAMING ===== -->
+<section class="section franja franja-oscura" id="streaming">
+  <div class="container franja-grid">
+    <div class="franja-text">
+      <p class="section-label section-label-claro">En vivo</p>
+      <h2 class="claro">Streaming TecWeek ED</h2>
+      <p class="claro-sub">
+        La TecWeek también se vive en vivo. Una transmisión durante toda la jornada
+        con especialistas, referentes, docentes y estudiantes invitados para conversar
+        sobre temas de actualidad en educación.
+      </p>
+    </div>
+    <a href="#" class="btn btn-outline-claro">Ver el streaming el día del evento</a>
+  </div>
+</section>
+
+<!-- ===== PREMIOS PIT ===== -->
+<section class="section pit" id="pit">
+  <div class="container pit-card">
+    <span class="pit-badge">🏆 PIT</span>
+    <h2>Premios a la Innovación Tecnológica</h2>
+    <p>
+      Diez proyectos de escuelas porteñas compiten por el premio 2026. Votá el que
+      más te inspire: elegís uno solo y los resultados se publican al cierre de la votación.
+    </p>
+    <button class="btn btn-disabled" disabled title="La votación se habilita más adelante">
+      Votación próximamente
+    </button>
+  </div>
+</section>
+
+<!-- ===== INFO + FAQ ===== -->
+<section class="section info-faq" id="faq">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <h4>¿Cuándo?</h4>
+        <p>Viernes 30 de octubre, de 8 a 18 h.</p>
+      </div>
+      <div class="info-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+        <h4>¿Dónde?</h4>
+        <p>Usina del Arte, Agustín R. Caffarena 1, barrio de La Boca.</p>
+      </div>
+      <div class="info-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="17" cy="8" r="2.6"/><path d="M16 14.2c2.8.4 5 2.6 5 5.8"/></svg>
+        <h4>¿A quién está dirigida?</h4>
+        <p>A docentes, estudiantes y toda la comunidad educativa de la Ciudad.</p>
+      </div>
+    </div>
+
+    <h2 class="faq-title">Preguntas frecuentes</h2>
+
+    <div class="accordion" id="accordion">
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Qué es la TecWeek ED?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>La Tecweek ED es la edición educativa de la Tecweek: Semana de las Tecnologías Emergentes y Creativas, una iniciativa del Gobierno de la Ciudad de Buenos Aires que reúne a los eventos más destacados de la industria tecnológica y creativa del país y del mundo.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Cómo llego a la Usina del Arte?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p><em>Contenido pendiente de completar (incluir también información sobre micros/transporte).</em></p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿A quién está dirigida la TecWeek ED?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>A todos los docentes, estudiantes y comunidad educativa de la Ciudad interesados en aprender, pensar y experimentar en torno a temas de educación y tecnologías.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Tengo que inscribirme?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Sí. <em>(Completar información e incluir link de inscripción cuando esté disponible.)</em></p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Las actividades tienen horarios específicos?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Sí. Consultá la <a href="AGENDA_PDF_PENDIENTE.pdf" target="_blank" rel="noopener">agenda aquí</a>.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Hay actividades para docentes de todos los niveles educativos?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Sí. El evento incluye propuestas relevantes para docentes de todos los niveles, y también otras diferenciadas para Nivel Inicial, Primario y Secundario.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Hay espacios de descanso?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Sí. Bienestar TEC ofrece un espacio para hacer una pausa, descansar y encontrarse con colegas.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Se sirven comidas?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p><em>Contenido pendiente de completar.</em></p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Está justificada la falta a la escuela para asistir a la TecWeek ED 2026?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p><em>Contenido pendiente de completar.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <img src="assets/logo-mark.png" alt="Tecweek ED Buenos Aires" class="logo-img">
+    </div>
+    <p class="footer-note"><em>Contenido del footer pendiente — se completa con logos institucionales (Ministerio de Educación, Gobierno de la Ciudad) y links que se definan.</em></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
