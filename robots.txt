@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fernandos94.github.io/prueba-tec/sitemap.xml
+Sitemap: https://tecweeked.bue.edu.ar/sitemap.xml
