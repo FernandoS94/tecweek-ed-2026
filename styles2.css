@@ -4,21 +4,11 @@
 ========================================================= */
 
 :root {
-  /* Paleta OFICIAL de marca (5 colores + neutros). Los nombres de variable son históricos
-     -cada categoría del sitio ya tenía un color asignado (verde=Charlas TEC, violeta=Foro TEC,
-     turquesa=Inteligencia Creativa, naranja=Inteligencia Aplicada, rosa=Inteligencia Expandida)-
-     así que se mantienen para no renombrar clases en todo el sitio, pero ahora cada uno apunta
-     al color oficial que le corresponde a esa categoría. La paleta oficial no tiene verde.
-       --verde    -> Azul oficial     #2763A5  (Charlas TEC)
-       --violeta  -> Violeta oficial  #5C0055  (Foro TEC)
-       --turquesa -> Celeste oficial  #62CFF6  (Inteligencia Creativa)
-       --naranja  -> Durazno oficial  #F0C79D  (Inteligencia Aplicada)
-       --rosa     -> Rosa oficial     #EE9CCA  (Inteligencia Expandida) */
-  --verde: #2763A5;
-  --violeta: #5C0055;
-  --turquesa: #62CFF6;
-  --naranja: #F0C79D;
-  --rosa: #EE9CCA;
+  --verde: #6FB93C;
+  --violeta: #7C6FE8;
+  --turquesa: #22B8B0;
+  --naranja: #F2843B;
+  --rosa: #E8508C;
 
   --oscuro: #12121A;
   --oscuro-2: #1B1B26;
@@ -27,16 +17,13 @@
   --texto-suave: #55555F;
   --borde: #E7E5DE;
 
-  /* Tokens del header nuevo (mapeados a la marca existente).
-     --brand-blue ahora ES el Azul oficial de la paleta (antes era un azul inventado,
-     #3B5FE5, antes de tener la guía real). Se usa para CTAs, foco y links genéricos —
-     no es "de una categoría", es el accent funcional/interactivo del sitio. */
+  /* Tokens del header nuevo (mapeados a la marca existente) */
   --font-family: 'Systemia', 'Inter', sans-serif;
   --color-light: var(--claro);
   --color-white: #FFFFFF;
-  --brand-blue: #2763A5;
-  --brand-blue-hover: #1F4F84;
-  --brand-gradient: linear-gradient(100deg, #1F4F84 0%, #2763A5 45%, #5C0055 100%);
+  --brand-blue: #3B5FE5;
+  --brand-blue-hover: #2F4ECC;
+  --brand-gradient: linear-gradient(100deg, #2F4ECC 0%, #3B5FE5 55%, #5B4FE0 100%);
 
   --font-display: 'N27', 'Inter', sans-serif;
   --font-body: 'Systemia', 'Inter', sans-serif;
@@ -247,20 +234,20 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .nav-chip:hover { color: #fff; background: rgba(11,15,25,.7); border-color: rgba(255,255,255,.32); }
 
-.nav-chip-verde { border-color: rgba(39,99,165,.6); color: #79A4D2; }
-.nav-chip-verde:hover { background: rgba(39,99,165,.24); border-color: var(--verde); color: #fff; }
+.nav-chip-verde { border-color: rgba(111,185,60,.6); color: #B9E59A; }
+.nav-chip-verde:hover { background: rgba(111,185,60,.24); border-color: var(--verde); color: #fff; }
 
-.nav-chip-violeta { border-color: rgba(92,0,85,.6); color: #E3B5DF; }
-.nav-chip-violeta:hover { background: rgba(92,0,85,.24); border-color: var(--violeta); color: #fff; }
+.nav-chip-violeta { border-color: rgba(124,111,232,.6); color: #C6BFF5; }
+.nav-chip-violeta:hover { background: rgba(124,111,232,.24); border-color: var(--violeta); color: #fff; }
 
-.nav-chip-turquesa { border-color: rgba(98,207,246,.6); color: #62CFF6; }
-.nav-chip-turquesa:hover { background: rgba(98,207,246,.24); border-color: var(--turquesa); color: #fff; }
+.nav-chip-turquesa { border-color: rgba(34,184,176,.6); color: #92E2DC; }
+.nav-chip-turquesa:hover { background: rgba(34,184,176,.24); border-color: var(--turquesa); color: #fff; }
 
-.nav-chip-naranja { border-color: rgba(240,199,157,.6); color: #F0C79D; }
-.nav-chip-naranja:hover { background: rgba(240,199,157,.24); border-color: var(--naranja); color: #fff; }
+.nav-chip-naranja { border-color: rgba(242,132,59,.6); color: #F8C49B; }
+.nav-chip-naranja:hover { background: rgba(242,132,59,.24); border-color: var(--naranja); color: #fff; }
 
-.nav-chip-rosa { border-color: rgba(238,156,202,.6); color: #EE9CCA; }
-.nav-chip-rosa:hover { background: rgba(238,156,202,.24); border-color: var(--rosa); color: #fff; }
+.nav-chip-rosa { border-color: rgba(232,80,140,.6); color: #F5A9C6; }
+.nav-chip-rosa:hover { background: rgba(232,80,140,.24); border-color: var(--rosa); color: #fff; }
 
 .header-actions { display: flex; align-items: center; gap: 20px; flex-shrink: 0; margin-left: auto; }
 
@@ -376,8 +363,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   flex-shrink: 0;
   color: #fff;
 }
-.meta-icon-violeta { background: var(--violeta); box-shadow: 0 6px 16px -4px rgba(92,0,85,.7); }
-.meta-icon-turquesa { background: var(--turquesa); box-shadow: 0 6px 16px -4px rgba(98,207,246,.7); }
+.meta-icon-violeta { background: var(--violeta); box-shadow: 0 6px 16px -4px rgba(124,111,232,.7); }
+.meta-icon-turquesa { background: var(--turquesa); box-shadow: 0 6px 16px -4px rgba(34,184,176,.7); }
 
 /* Barra de info inferior del hero */
 .hero-infobar {
@@ -410,10 +397,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #fff;
   flex-shrink: 0;
 }
-.infobar-icon-violeta { background: linear-gradient(135deg, #5C0055, #7A0071); }
-.infobar-icon-azul { background: linear-gradient(135deg, #2763A5, #1F4F84); }
-.infobar-icon-turquesa { background: linear-gradient(135deg, #62CFF6, #3AB8E8); }
-.infobar-icon-rosa { background: linear-gradient(135deg, #EE9CCA, #D9629F); }
+.infobar-icon-violeta { background: linear-gradient(135deg, #7C6FE8, #5B6EE8); }
+.infobar-icon-azul { background: linear-gradient(135deg, #4A9FE8, #5B6EE8); }
+.infobar-icon-turquesa { background: linear-gradient(135deg, #22B8B0, #4AC9C0); }
+.infobar-icon-rosa { background: linear-gradient(135deg, #E8508C, #C85FE0); }
 
 .infobar-item h4 { font-size: 0.98rem; color: #fff; margin-bottom: 4px; }
 .infobar-item p { font-size: 0.85rem; color: rgba(255,255,255,.55); line-height: 1.35; }
@@ -500,7 +487,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   gap: 10px;
   padding: 30px 20px 26px;
   border-radius: 18px;
-  background: linear-gradient(90deg, #1F4F84 0%, #2763A5 30%, #5C0055 100%);
+  background: linear-gradient(90deg, #4A5FD9 0%, #7C6FE8 35%, #B85FD9 68%, #E8508C 100%);
   margin-bottom: 54px;
 }
 
@@ -602,7 +589,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--texto-suave);
   margin-bottom: 10px;
 }
-.section-label-claro { color: #85007B; }
+.section-label-claro { color: #2F5A12; }
 
 .section-intro {
   color: var(--texto-suave);
@@ -865,19 +852,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 .experiencias { transition: background .8s ease; }
 
 /* Colores por experiencia (--exp-accent-text es la variante oscura, apta para texto sobre claro) */
-.exp-verde    { --exp-accent: var(--verde);    --exp-accent-soft: rgba(39,99,165,.16);   --exp-accent-text: #2763A5; }
-.exp-violeta  { --exp-accent: var(--violeta);  --exp-accent-soft: rgba(92,0,85,.16);     --exp-accent-text: #5C0055; }
-.exp-turquesa { --exp-accent: var(--turquesa); --exp-accent-soft: rgba(98,207,246,.16);  --exp-accent-text: #0A7DA6; }
-.exp-naranja  { --exp-accent: var(--naranja);  --exp-accent-soft: rgba(240,199,157,.16); --exp-accent-text: #A7611A; }
-.exp-rosa     { --exp-accent: var(--rosa);     --exp-accent-soft: rgba(238,156,202,.16); --exp-accent-text: #D62588; }
+.exp-verde    { --exp-accent: var(--verde);    --exp-accent-soft: rgba(111,185,60,.16); --exp-accent-text: #35590F; }
+.exp-violeta  { --exp-accent: var(--violeta);  --exp-accent-soft: rgba(124,111,232,.16); --exp-accent-text: #362FA0; }
+.exp-turquesa { --exp-accent: var(--turquesa); --exp-accent-soft: rgba(34,184,176,.16);  --exp-accent-text: #0B5044; }
+.exp-naranja  { --exp-accent: var(--naranja);  --exp-accent-soft: rgba(242,132,59,.16);  --exp-accent-text: #8A4310; }
+.exp-rosa     { --exp-accent: var(--rosa);     --exp-accent-soft: rgba(232,80,140,.16);  --exp-accent-text: #7A2A4C; }
 
 /* ---------- Franjas (Bosque / Bienestar / Streaming) ---------- */
 .franja { background: #fff; border-top: 1px solid var(--borde); }
-/* Violeta pastel: "El Bosque de las Decisiones" es la sección más oscura de la página;
-   este tono (--claro con ~14% de --violeta, mismo porcentaje que usan los fondos suaves
-   de categoría en el carrusel) la aclara y le da un aire de "bosque de noche" sin perder
-   contraste ni recurrir al verde, que no existe en la paleta oficial. */
-.franja-oscura { background: #E4D7E1; border-top: none; }
+/* Verde pastel: "El Bosque de las Decisiones" es la sección más oscura de la página;
+   este tono (--claro con ~14% de --verde, mismo porcentaje que usan los fondos suaves
+   de categoría en el carrusel) la aclara y refuerza la idea de "bosque" sin perder contraste. */
+.franja-oscura { background: #E7F1DE; border-top: none; }
 
 .franja-grid {
   display: flex;
@@ -890,8 +876,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .franja-text { flex: 1 1 380px; }
 .franja-text h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 14px; }
 .franja-text p { color: var(--texto-suave); max-width: 560px; font-size: 1.02rem; }
-.franja-text .claro { color: #5C0055; }
-.franja-text .claro-sub { color: #99008D; }
+.franja-text .claro { color: #1F3D0F; }
+.franja-text .claro-sub { color: #3B5C1E; }
 
 .agora-media { flex: 1 1 420px; max-width: 480px; }
 .agora-img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
@@ -901,8 +887,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .franja-tags { display: flex; gap: 10px; flex-wrap: wrap; }
 .tag {
-  border: 1px solid rgba(92,0,85,.35);
-  color: #85007B;
+  border: 1px solid rgba(47,90,18,.35);
+  color: #2F5A12;
   padding: 8px 16px;
   border-radius: 999px;
   font-size: 0.88rem;
@@ -1039,7 +1025,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-weight: 800;
   font-size: 3.4rem;
   line-height: 1;
-  background: linear-gradient(135deg, #fff 0%, #EE9CCA 100%);
+  background: linear-gradient(135deg, #fff 0%, #E8508C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1324,10 +1310,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .exp-slide-icon svg { width: 24px; height: 24px; }
 }
 
-/* Accesibilidad: foco visible. Usa el azul de marca (no una de las 5 categorías) para que
-   se vea igual de bien tanto en fondos claros como oscuros (header, hero). */
+/* Accesibilidad: foco visible */
 a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--brand-blue);
+  outline: 2px solid var(--violeta);
   outline-offset: 2px;
 }
 
