@@ -25,7 +25,7 @@
   --brand-blue-hover: #2F4ECC;
   --brand-gradient: linear-gradient(100deg, #2F4ECC 0%, #3B5FE5 55%, #5B4FE0 100%);
 
-  --font-display: 'N27', 'Inter', sans-serif;
+  --font-display: 'N27', 'Barlow Semi Condensed', 'Inter', sans-serif;
   --font-body: 'Systemia', 'Inter', sans-serif;
 
   --radius: 18px;
@@ -34,28 +34,30 @@
 
 /* ===== Tipografía de marca =====
    Titulares: N27 Regular (siempre en mayúsculas)
-   Textos:    Systemia Regular / Bold (mayúsculas y minúsculas)
-   Archivos en assets/fonts/. Si un archivo no carga, el navegador usa Inter (Google Fonts).
-   OJO: la versión "Systemia Test" no incluye ? ( ) : + | ni comillas y guiones largos; esos
-   caracteres se dibujan con Inter hasta contar con la versión completa de la fuente. */
+   Textos:    Systemia Light / Bold (mayúsculas y minúsculas)
+   Poné los archivos .woff2 en assets/fonts/ con estos nombres exactos.
+   Si todavía no están, el sitio usa las fuentes de respaldo del stack. */
 @font-face {
   font-family: 'N27';
-  src: url('assets/fonts/N27-Regular.woff2') format('woff2');
+  src: local('N27 Regular'), local('N27-Regular'),
+       url('assets/fonts/N27-Regular.woff2') format('woff2');
   font-weight: 100 900; /* una sola cara: evita negritas falsas */
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Systemia';
-  src: url('assets/fonts/Systemia-Regular.woff2') format('woff2');
-  font-weight: 300 500; /* no hay Light: 300-500 usan Regular */
+  src: local('Systemia Light'), local('Systemia-Light'),
+       url('assets/fonts/Systemia-Light.woff2') format('woff2');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Systemia';
-  src: url('assets/fonts/Systemia-Bold.woff2') format('woff2');
-  font-weight: 600 900;
+  src: local('Systemia Bold'), local('Systemia-Bold'),
+       url('assets/fonts/Systemia-Bold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -71,7 +73,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: 300;
   color: var(--texto);
   line-height: 1.5;
 
@@ -274,24 +276,24 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #fff;
   padding: 70px 0 0;
 
-  /* Fondo "Freedom Gradient" de la guía de marca (paleta: #5C0055, #EE9CCA, #F0C79D, #62CFF6, #2763A5).
-     Es una imagen generada con los colores reales de la guía, pero con el cian comprimido contra
-     el borde y llevado rápido al azul oscuro de la paleta: así el texto blanco se lee sin sombra.
-     - assets/freedom-gradient.webp         → escritorio (izquierda → derecha)
-     - assets/freedom-gradient-mobile.webp  → tablet y celular (arriba → abajo)
-     Si la imagen no carga, se ven las capas CSS de respaldo. */
+  /* Fondo "Freedom Gradient" de la guía de marca
+     Paleta: #5C0055 violeta, #EE9CCA rosa, #F0C79D durazno, #62CFF6 celeste, #2763A5 azul */
   background-color: #5C0055;
   background-image:
-    url('assets/freedom-gradient.webp'),
-    linear-gradient(90deg, #33FFFF 0%, #2763A5 11%, #5C0055 50%, #EE9CCA 100%);
-  background-size: 100% 100%, 100% 100%;
-  background-repeat: no-repeat;
+    /* velo oscuro suave del lado del texto para asegurar legibilidad */
+    radial-gradient(ellipse 45% 55% at 8% 88%, rgba(38,36,36,.5) 0%, transparent 100%),
+    linear-gradient(90deg, rgba(38,36,36,.14) 0%, transparent 60%),
+    radial-gradient(ellipse 42% 62% at 100% 0%, #EE9CCA 0%, rgba(238,156,202,.75) 38%, transparent 100%),
+    radial-gradient(ellipse 34% 55% at 94% 100%, #F0C79D 0%, rgba(240,199,157,.65) 40%, transparent 100%),
+    radial-gradient(ellipse 36% 62% at 6% 82%, #9BE6FF 0%, rgba(98,207,246,.65) 45%, transparent 100%),
+    radial-gradient(ellipse 36% 75% at 0% 8%, #33FFFF 0%, rgba(51,255,255,.8) 42%, transparent 100%),
+    radial-gradient(ellipse 30% 55% at 33% 32%, #2763A5 0%, rgba(39,99,165,.8) 45%, transparent 100%);
 }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 54px;
   align-items: center;
   padding: 0 24px 20px;
 }
@@ -408,25 +410,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Media: foto + lista superpuesta */
 .hero-media {
   position: relative;
-  align-self: end;
-  /* La imagen es un recorte cortado a la altura del pecho: se APOYA sobre el contador.
-     Su base coincide con el borde superior de la tarjeta (el -20px anula el padding inferior
-     del hero-inner) y no se sale del ancho del contador por la derecha. */
-  margin-bottom: -20px;
-  margin-right: 0;
-  /* Para ganar tamaño, crece hacia la izquierda: esa zona de la imagen es transparente
-     y queda libre, a la derecha de los botones. */
-  margin-left: -90px;
-  /* La imagen no debe bloquear clics en los botones que quedan debajo de su zona transparente */
-  pointer-events: none;
-  /* La sombra va en el contenedor (no en la <img>) para que siga la silueta */
-  filter: drop-shadow(0 18px 36px rgba(20, 0, 50, .35));
 }
 
 .hero-photo {
-  display: block;
   width: 100%;
   height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.35));
 }
 
 /* Scrim fijo: garantiza contraste del texto sin importar qué foto haya debajo */
@@ -479,8 +472,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Cuenta regresiva — franja con degradé */
 .countdown {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -553,8 +544,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .countdown-note {
   margin: 6px 0 0;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: rgba(255,255,255,.9);
   text-align: center;
 }
@@ -630,69 +621,45 @@ ul { margin: 0; padding: 0; list-style: none; }
 .experiencias { background: #F3F1EA; }
 .experiencias h2 { font-size: clamp(1.9rem, 3.5vw, 2.5rem); margin-bottom: 4px; }
 
-/* ---------- Experiencias — carrusel (slide centrado con vista previa de los vecinos) ---------- */
+/* ---------- Experiencias — carrusel horizontal (todo en una pantalla) ---------- */
 .exp-carousel {
   position: relative;
-  margin-top: 36px;
+  margin-top: 44px;
 }
 
-/* El slide ocupa el 100% del área de contenido; el padding lateral deja asomar los vecinos.
-   Así el slide activo queda siempre centrado, incluido el primero y el último. */
 .exp-track {
-  position: relative;
   display: flex;
-  gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 16px 7% 54px;      /* espacio vertical para que no se corte la sombra */
+  border-radius: 22px;
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,.25);
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  /* desvanece los bordes: las tarjetas vecinas se pierden suavemente en vez de cortarse */
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
-          mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
 }
 .exp-track::-webkit-scrollbar { display: none; }
-.exp-track:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: -2px; border-radius: 28px; }
+.exp-track:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 4px; }
 
 .exp-slide {
   flex: 0 0 100%;
-  scroll-snap-align: center;
-  min-height: 380px;
+  scroll-snap-align: start;
+  min-height: clamp(220px, 28vh, 280px);
   background: #fff;
-  border-radius: 28px;
-  overflow: hidden;
   display: flex;
   align-items: stretch;
-  opacity: .5;
-  transform: scale(.95);
-  transition: transform .6s ease, opacity .6s ease, box-shadow .6s ease;
-}
-.exp-slide.is-active {
-  opacity: 1;
-  transform: scale(1);
-  box-shadow: 0 24px 44px -22px rgba(0,0,0,.28);
 }
 
-/* Foto: el contenedor manda el tamaño; la imagen se posiciona absoluta para que su
-   tamaño original nunca estire la tarjeta. */
 .exp-slide-visual {
-  flex: 0 0 44%;
+  flex: 0 0 42%;
   position: relative;
   overflow: hidden;
 }
 .exp-slide-photo {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 38%;
-  transform: scale(1.02);
-  transition: transform 8s ease;
+  display: block;
 }
-.exp-slide.is-active .exp-slide-photo { transform: scale(1.07); }   /* zoom sutil, sin recortar de más */
-
-/* Slides sin foto todavía */
 .exp-slide-visual-placeholder {
   display: flex;
   align-items: center;
@@ -708,151 +675,132 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--exp-accent-soft);
   opacity: .78;
 }
+
 .exp-slide-icon {
   position: relative;
   flex-shrink: 0;
-  width: 96px;
-  height: 96px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: var(--exp-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  box-shadow: 0 18px 36px -14px var(--exp-accent);
+  box-shadow: 0 14px 28px -12px var(--exp-accent);
 }
-.exp-slide-icon svg { width: 44px; height: 44px; }
+.exp-slide-icon svg { width: 30px; height: 30px; }
 
-/* Texto de la tarjeta */
 .exp-slide-copy {
   flex: 1;
-  min-width: 0;
-  padding: 32px 52px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 20px 40px;
 }
-.exp-slide-copy > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.exp-slide.is-active .exp-slide-copy > * { opacity: 1; transform: translateY(0); }
-.exp-slide-copy > *:nth-child(1) { transition-delay: .05s; }
-.exp-slide-copy > *:nth-child(2) { transition-delay: .15s; }
-.exp-slide-copy > *:nth-child(3) { transition-delay: .25s; }
-.exp-slide-copy > *:nth-child(4) { transition-delay: .35s; }
-.exp-slide-copy > *:nth-child(5) { transition-delay: .45s; }
 
 .exp-slide-index {
   display: block;
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-weight: 800;
+  font-size: 0.72rem;
   letter-spacing: .16em;
-  color: var(--exp-accent-text);
-  margin-bottom: 8px;
+  color: var(--exp-accent);
+  margin-bottom: 4px;
 }
+
 .exp-slide-title {
-  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
   line-height: 1;
   color: var(--texto);
-  margin: 0 0 12px;
+  margin: 0 0 6px;
 }
+
 .exp-slide-tagline {
-  font-size: 1rem;
+  font-size: 0.88rem;
   color: var(--texto-suave);
   max-width: 460px;
-  margin: 0 0 18px;
+  margin: 0 0 10px;
 }
+
 .exp-slide-eyebrow {
   display: block;
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-weight: 800;
+  font-size: 0.65rem;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--exp-accent-text);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
+
 .exp-slide-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
   margin: 0;
   padding: 0;
 }
 .exp-slide-list li {
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 6px 12px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 10px;
   border-radius: 999px;
   background: var(--exp-accent-soft);
   color: var(--exp-accent-text);
 }
 
-/* Controles */
 .exp-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(255,255,255,.85);
-  color: #111;
+  border: none;
+  background: var(--texto);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform .3s ease, box-shadow .3s ease;
-  z-index: 10;
+  box-shadow: 0 12px 28px -10px rgba(0,0,0,.5);
+  transition: background .2s ease, transform .2s ease;
 }
-.exp-arrow:hover { transform: translateY(-50%) scale(1.08); box-shadow: 0 10px 25px rgba(0,0,0,.18); }
+.exp-arrow:hover { background: #000; }
 .exp-arrow:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 2px; }
-.exp-arrow-prev { left: 12px; }
-.exp-arrow-next { right: 12px; }
+.exp-arrow-prev { left: 18px; }
+.exp-arrow-next { right: 18px; }
 
-.exp-dots { display: flex; justify-content: center; gap: 12px; margin-top: -14px; }
+.exp-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
 .exp-dot {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   border: none;
-  padding: 0;
+  background: var(--borde);
   cursor: pointer;
-  background: #cfcfcf;
-  transition: transform .3s ease, background .3s ease;
+  padding: 0;
+  transition: transform .2s ease, background .2s ease;
 }
+.exp-dot:hover { transform: scale(1.2); }
 .exp-dot:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 3px; }
-.exp-dot.is-active { transform: scale(1.5); background: var(--exp-accent); }
+.exp-dot.is-active { background: var(--exp-accent); transform: scale(1.25); }
 
-.exp-progress {
-  width: 240px;
-  height: 4px;
-  background: rgba(0,0,0,.12);
-  border-radius: 999px;
-  overflow: hidden;
-  margin: 20px auto 0;
-}
-.exp-progress-bar {
-  display: block;
-  height: 100%;
-  width: 20%;
-  background: linear-gradient(90deg, var(--brand-blue), var(--turquesa));
-  transition: width .5s ease;
-}
-
-.experiencias { transition: background .8s ease; }
-
-/* Colores por experiencia (--exp-accent-text es la variante oscura, apta para texto sobre claro) */
-.exp-verde    { --exp-accent: var(--verde);    --exp-accent-soft: rgba(111,185,60,.16); --exp-accent-text: #35590F; }
-.exp-violeta  { --exp-accent: var(--violeta);  --exp-accent-soft: rgba(124,111,232,.16); --exp-accent-text: #362FA0; }
-.exp-turquesa { --exp-accent: var(--turquesa); --exp-accent-soft: rgba(34,184,176,.16);  --exp-accent-text: #0B5044; }
-.exp-naranja  { --exp-accent: var(--naranja);  --exp-accent-soft: rgba(242,132,59,.16);  --exp-accent-text: #8A4310; }
-.exp-rosa     { --exp-accent: var(--rosa);     --exp-accent-soft: rgba(232,80,140,.16);  --exp-accent-text: #7A2A4C; }
+.exp-verde    { --exp-accent: var(--verde);    --exp-accent-soft: rgba(111,185,60,.14); --exp-accent-text: #35590F; }
+.exp-violeta  { --exp-accent: var(--violeta);  --exp-accent-soft: rgba(124,111,232,.14); --exp-accent-text: #362FA0; }
+.exp-turquesa { --exp-accent: var(--turquesa); --exp-accent-soft: rgba(34,184,176,.14);  --exp-accent-text: #0B5044; }
+.exp-naranja  { --exp-accent: var(--naranja);  --exp-accent-soft: rgba(242,132,59,.14);  --exp-accent-text: #8A4310; }
+.exp-rosa     { --exp-accent: var(--rosa);     --exp-accent-soft: rgba(232,80,140,.14);  --exp-accent-text: #7A2A4C; }
 
 /* ---------- Franjas (Bosque / Bienestar / Streaming) ---------- */
 .franja { background: #fff; border-top: 1px solid var(--borde); }
@@ -1193,37 +1141,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   .site-header { position: sticky; }
 }
 
-/* Escritorio: el texto arranca en x = máx(24px, (ancho − 1160px)/2 + 24px). La imagen se agranda
-   lo justo (anclada a la derecha) para que el azul quede siempre 40px a la izquierda del texto (con margen de seguridad) y el
-   cian sólo ocupe el margen libre. En pantallas anchas es 100% y se ve el degradé completo. */
-@media (min-width: 901px) {
-  .hero {
-    background-size: max(100%, calc(min((100vw + 1160px) / 2 + 16px, 100vw + 16px) / 0.89)) 100%, 100% 100%;
-    background-position: 100% 0, 0 0;
-  }
-}
-
-/* Tablet y celular: el texto ocupa todo el ancho, así que el degradé se usa en vertical
-   (cian arriba detrás de la foto, azul y violeta detrás del texto, rosa/durazno abajo). */
-@media (max-width: 900px) {
-  .hero {
-    background-image:
-      url('assets/freedom-gradient-mobile.webp'),
-      linear-gradient(180deg, #33FFFF 0%, #2763A5 9%, #5C0055 60%, #EE9CCA 100%);
-  }
-}
-
 @media (max-width: 900px) {
   .ejes-grid { grid-template-columns: 1fr; }
   .mapa-grid { grid-template-columns: 1fr; }
   .streaming-grid { grid-template-columns: 1fr; }
   .info-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-media { order: -1; align-self: center; margin: 0 auto -28px; max-width: 560px; }
-  .hero-photo {
-    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 110px), transparent 100%);
-            mask-image: linear-gradient(to bottom, #000 calc(100% - 110px), transparent 100%);
-  }
+  .hero-media { aspect-ratio: 16 / 9; order: -1; }
   .hero-infobar { grid-template-columns: 1fr 1fr; gap: 22px 0; }
   .infobar-item { border-right: none; padding: 0 14px; }
   .infobar-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.09); }
@@ -1259,22 +1183,19 @@ ul { margin: 0; padding: 0; list-style: none; }
   .infobar-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,.09); padding: 20px 0; }
   .infobar-item:last-child { border-bottom: none; }
 
-  /* Tarjeta en columna: foto arriba con alto fijo, texto abajo; la altura la da el contenido */
   .exp-slide {
     flex-direction: column;
-    min-height: 0;
+    min-height: clamp(300px, 38vh, 360px);
   }
-  .exp-slide-visual { flex: 0 0 190px; }
+  .exp-slide-visual { flex: 0 0 42%; }
   .exp-slide-copy {
     text-align: center;
     align-items: center;
-    padding: 24px 22px 30px;
+    padding: 28px 26px 36px;
   }
   .exp-slide-tagline { max-width: none; }
   .exp-slide-list { justify-content: center; }
-  .exp-track { padding-left: 6%; padding-right: 6%; }
-  /* Flechas alineadas al centro de la foto, no del texto */
-  .exp-arrow { width: 38px; height: 38px; top: 111px; }
+  .exp-arrow { width: 38px; height: 38px; }
   .exp-arrow svg { width: 16px; height: 16px; }
 }
 
@@ -1310,18 +1231,7 @@ a:focus-visible, button:focus-visible {
   outline-offset: 2px;
 }
 
-/* Accesibilidad: si el sistema pide "reducir movimiento" se respeta, pero sin dejar la página "muerta".
-   Se eliminan los movimientos (escalas, desplazamientos, zoom, rebotes y animaciones continuas)
-   y se conservan los fundidos suaves de opacidad y color, que no generan mareo. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; }
-
-  .exp-track { scroll-behavior: auto; }
-  .exp-slide { transform: none; transition: opacity .5s ease, box-shadow .5s ease; }
-  .exp-slide-copy > * { transform: none; transition: opacity .5s ease; }
-  .exp-slide-photo,
-  .exp-slide.is-active .exp-slide-photo { transform: none; transition: none; }
-  .experiencias { transition: background-color .6s ease; }
+  * { transition: none !important; animation: none !important; }
 }
-

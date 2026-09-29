@@ -7,11 +7,11 @@
 <meta name="description" content="TecWeek ED 2026: una jornada gratuita para imaginar la escuela que viene, con la inteligencia artificial como eje central. Viernes 30 de octubre, Usina del Arte, La Boca, CABA. Abierta a toda la comunidad educativa.">
 <link rel="canonical" href="https://tecweeked.bue.edu.ar/">
 
-
+<!-- Favicon (usa la mascota C-PAW ya publicada en el sitio) -->
 <link rel="icon" type="image/png" href="assets/robodog.png">
 <link rel="apple-touch-icon" href="assets/robodog.png">
 
-
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc.) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tecweeked.bue.edu.ar/">
 <meta property="og:title" content="TecWeek ED 2026 | Buenos Aires">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://tecweeked.bue.edu.ar/assets/hero-evento.png">
 <meta property="og:locale" content="es_AR">
 
-
+<!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TecWeek ED 2026 | Buenos Aires">
 <meta name="twitter:description" content="Una jornada gratuita para imaginar la escuela que viene, con la inteligencia artificial como eje central. Viernes 30 de octubre, Usina del Arte, CABA.">
@@ -28,11 +28,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link rel="preload" href="assets/fonts/N27-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Systemia-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Inter: respaldo para los caracteres que la versión de prueba de Systemia no incluye -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Google Analytics (GA4) -->
 <!-- Reemplazá G-XXXXXXXXXX por tu Measurement ID real (lo sacás en analytics.google.com) -->
@@ -84,7 +80,7 @@
 </head>
 <body>
 
-
+<!-- ===== HEADER ===== -->
 <header class="site-header" id="header">
   <div class="container header-inner">
     <a href="#top" class="logo">
@@ -102,6 +98,7 @@
       <span></span><span></span><span></span>
     </button>
 
+    <!-- Menú del hamburguesa (solo mobile/tablet): únicamente Agenda, Mapa y Premios PIT -->
     <nav class="main-nav mobile-nav" id="mainNav" aria-label="Menú principal">
       <a href="AGENDA_PDF_PENDIENTE.pdf" target="_blank" rel="noopener">Agenda</a>
       <a href="#top">Recursos</a>
@@ -110,7 +107,7 @@
   </div>
 </header>
 
-
+<!-- ===== BANNER PRINCIPAL ===== -->
 <section class="hero" id="top">
   <div class="container">
     <nav class="chip-nav hero-chip-nav" id="heroChipNav" aria-label="Secciones del evento">
@@ -120,7 +117,7 @@
       <a href="#inteligencia-aplicada" class="nav-chip nav-chip-naranja">Inteligencia Aplicada</a>
       <a href="#inteligencia-expandida" class="nav-chip nav-chip-rosa">Inteligencia Expandida</a>
     </nav>
-  
+    <img src="assets/tec-logo1.png" alt="TecWeek ED Buenos Aires" class="hero-logo">
   </div>
   <div class="container hero-inner">
     <div class="hero-copy">
@@ -162,10 +159,7 @@
     </div>
 
     <div class="hero-media">
-      <picture>
-        <source srcset="assets/hero-vr.webp" type="image/webp">
-        <img src="assets/hero-vr.png" width="1384" height="813" alt="Una estudiante con visor de realidad virtual y un docente señalando hacia arriba" class="hero-photo">
-      </picture>
+      <img src="assets/hero-evento.png" alt="Piso de stands y asistentes en la edición anterior de la TecWeek ED" class="hero-photo">
     
     </div>
   </div>
@@ -199,14 +193,14 @@
     </div>
   </div>
 
-  
+  <img src="assets/robodog.png" alt="C-PAW, la mascota robot de la TecWeek ED" class="hero-dog">
 
   <div class="hero-bar" aria-hidden="true">
     <span class="bar-verde"></span><span class="bar-violeta"></span><span class="bar-turquesa"></span><span class="bar-naranja"></span><span class="bar-rosa"></span>
   </div>
 </section>
 
-
+<!-- ===== UN EVENTO ÚNICO (4 EJES) ===== -->
 <section class="section ejes">
   <div class="container ejes-grid">
     <div class="ejes-text">
@@ -226,131 +220,158 @@
   </div>
 </section>
 
-
+<!-- ===== CINCO EXPERIENCIAS ===== -->
 <section class="section experiencias" id="espacios">
   <div class="container">
 
-    <h2>Un mismo día, cinco experiencias</h2>
+    <h2>Cinco experiencias, un mismo día</h2>
     <p class="section-intro">
-      Elegí cómo recorrer la jornada: experiencias lúdicas, conversaciones, propuestas para experimentar y espacios de intercambio.<br> Deslizá o usá las flechas para ver las cinco.
+      Elegí cómo recorrer la jornada: charlas, talleres y espacios para visitar,
+      aprender e interactuar.
     </p>
 
-    <div class="exp-carousel">
-      <div class="exp-track" id="expTrack" tabindex="0" aria-label="Experiencias de la jornada, deslizá o usá las flechas del teclado">
+    <div class="exp-list">
 
-        <article class="exp-slide exp-verde">
-          <div class="exp-slide-visual">
-            <img src="assets/exp-01-charlas-tec.jpg" alt="Orador presentando sobre inteligencia artificial en el escenario principal, con el público en primer plano" class="exp-slide-photo" loading="lazy">
-          </div>
-          <div class="exp-slide-copy">
-            <span class="exp-slide-index">01</span>
-            <h3 class="exp-slide-title">Charlas TEC</h3>
-            <p class="exp-slide-tagline">Destacados referentes en educación, tecnología e innovación comparten ideas y experiencias para pensar la educación del presente y del futuro.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
-            <ul class="exp-slide-list">
-              <li><em>Charlas</em></li>
-              <li><em>Paneles de referentes</em></li>
-              <li><em>Espacios para aprender</em></li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="exp-slide exp-violeta">
-          <div class="exp-slide-visual">
-            <img src="assets/exp-02-foro-tec.jpg" alt="Panel de discusión con varias personas conversando alrededor de una mesa" class="exp-slide-photo" loading="lazy">
-          </div>
-          <div class="exp-slide-copy">
-            <span class="exp-slide-index">02</span>
-            <h3 class="exp-slide-title">Foro TEC</h3>
-            <p class="exp-slide-tagline">Paneles y conversaciones sobre proyectos y experiencias que están transformando las formas de enseñar y aprender con tecnologías.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
-            <ul class="exp-slide-list">
-              <li><em>Mesas de discusión</em></li>
-              <li><em>Talleres colaborativos</em></li>
-              <li><em>Espacios para interactuar</em></li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="exp-slide exp-turquesa">
-          <div class="exp-slide-visual">
-            <img src="assets/exp-03-inteligencia-creativa.jpg" alt="Manos armando un robot con componentes electrónicos en un taller maker" class="exp-slide-photo" loading="lazy">
-          </div>
-          <div class="exp-slide-copy">
-            <span class="exp-slide-index">03</span>
-            <h3 class="exp-slide-title">Inteligencia Creativa</h3>
-            <p class="exp-slide-tagline">Crear, experimentar e inventar con tecnologías</p>
-              <span class="exp-slide-eyebrow">Qué incluye</span>
-            <ul class="exp-slide-list">
-              <li><em>Lab Tec</em></li>
-              <li><em>Lab Lúdico</em> </li>
-              
-            </ul>
-          </div>
-        </article>
-
-        <article class="exp-slide exp-naranja">
-          <div class="exp-slide-visual exp-slide-visual-placeholder">
-            <div class="exp-slide-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM3 9h2M3 15h2M19 9h2M19 15h2M9 3v2M15 3v2M9 19v2M15 19v2"/></svg>
+      <article class="exp-row exp-verde" id="charlas-tec">
+        <div class="exp-visual" role="button" tabindex="0" aria-pressed="false" aria-label="Ver qué incluye Charlas TEC">
+          <div class="exp-flip">
+            <div class="exp-flip-face exp-flip-front">
+              <div class="exp-visual-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg>
+              </div>
+              <span class="exp-flip-hint"><i class="exp-flip-hint-icon"></i>Tocá para ver qué incluye</span>
+            </div>
+            <div class="exp-flip-face exp-flip-back">
+              <span class="exp-flip-eyebrow">Qué incluye</span>
+              <ul>
+                <li>Charlas</li>
+                <li>Paneles de referentes</li>
+                <li>Espacios para aprender</li>
+              </ul>
+              <span class="exp-flip-hint">Volver</span>
             </div>
           </div>
-          <div class="exp-slide-copy">
-            <span class="exp-slide-index">04</span>
-            <h3 class="exp-slide-title">Inteligencia Aplicada</h3>
-            <p class="exp-slide-tagline">Usar tecnologías en la escuela.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
-            <ul class="exp-slide-list">
-              <li><em>Espacio Asistente IA</em></li>
-              <li><em>Entrega de Premios a la Innovación Tecnológica (PIT)</em></li>
-              <li><em>Espacio Escuela Estación BA</em></li>
-            </ul>
-          </div>
-        </article>
+        </div>
+        <div class="exp-copy">
+          <span class="exp-index">01</span>
+          <h3 class="exp-title">Charlas<br>TEC</h3>
+          <p class="exp-tagline">Grandes voces de la educación y la tecnología en el escenario principal.</p>
+        </div>
+      </article>
 
-        <article class="exp-slide exp-rosa">
-          <div class="exp-slide-visual exp-slide-visual-placeholder">
-            <div class="exp-slide-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="4.2" ry="10" transform="rotate(45 12 12)"/></svg>
+      <article class="exp-row exp-violeta" id="foro-tec">
+        <div class="exp-visual" role="button" tabindex="0" aria-pressed="false" aria-label="Ver qué incluye Foro TEC">
+          <div class="exp-flip">
+            <div class="exp-flip-face exp-flip-front">
+              <div class="exp-visual-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="17" cy="8" r="2.6"/><path d="M16 14.2c2.8.4 5 2.6 5 5.8"/></svg>
+              </div>
+              <span class="exp-flip-hint"><i class="exp-flip-hint-icon"></i>Tocá para ver qué incluye</span>
+            </div>
+            <div class="exp-flip-face exp-flip-back">
+              <span class="exp-flip-eyebrow">Qué incluye</span>
+              <ul>
+                <li>Mesas de discusión</li>
+                <li>Talleres colaborativos</li>
+                <li>Espacios para interactuar</li>
+              </ul>
+              <span class="exp-flip-hint">Volver</span>
             </div>
           </div>
-          <div class="exp-slide-copy">
-            <span class="exp-slide-index">05</span>
-            <h3 class="exp-slide-title">Inteligencia Expandida</h3>
-            <p class="exp-slide-tagline">Tecnologías para ampliar las formas de aprender y de construir conocimiento.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
-            <ul class="exp-slide-list">
-              <li><em>Espacios formativos en Sala TEC 1 - Sala TEC 2</em></li>
-              
-            </ul>
+        </div>
+        <div class="exp-copy">
+          <span class="exp-index">02</span>
+          <h3 class="exp-title">Foro<br>TEC</h3>
+          <p class="exp-tagline">Debate abierto entre docentes, líderes, startups y gobierno.</p>
+        </div>
+      </article>
+
+      <article class="exp-row exp-turquesa" id="inteligencia-creativa">
+        <div class="exp-visual" role="button" tabindex="0" aria-pressed="false" aria-label="Ver qué incluye Inteligencia Creativa">
+          <div class="exp-flip">
+            <div class="exp-flip-face exp-flip-front">
+              <div class="exp-visual-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M8.5 12.5a1.5 1.5 0 1 0 0-3M15.5 15.5a1.5 1.5 0 1 0 0-3"/></svg>
+              </div>
+              <span class="exp-flip-hint"><i class="exp-flip-hint-icon"></i>Tocá para ver qué incluye</span>
+            </div>
+            <div class="exp-flip-face exp-flip-back">
+              <span class="exp-flip-eyebrow">Qué incluye</span>
+              <ul>
+                <li>Espacio Maker · Robot BA</li>
+                <li>Lab Lúdico · Lab Arte</li>
+                <li>Espacios para visitar</li>
+              </ul>
+              <span class="exp-flip-hint">Volver</span>
+            </div>
           </div>
-        </article>
+        </div>
+        <div class="exp-copy">
+          <span class="exp-index">03</span>
+          <h3 class="exp-title">Inteligencia<br>Creativa</h3>
+          <p class="exp-tagline">Arte, diseño y creatividad potenciados por la tecnología.</p>
+        </div>
+      </article>
 
-      </div>
+      <article class="exp-row exp-naranja" id="inteligencia-aplicada">
+        <div class="exp-visual" role="button" tabindex="0" aria-pressed="false" aria-label="Ver qué incluye Inteligencia Aplicada">
+          <div class="exp-flip">
+            <div class="exp-flip-face exp-flip-front">
+              <div class="exp-visual-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM3 9h2M3 15h2M19 9h2M19 15h2M9 3v2M15 3v2M9 19v2M15 19v2"/></svg>
+              </div>
+              <span class="exp-flip-hint"><i class="exp-flip-hint-icon"></i>Tocá para ver qué incluye</span>
+            </div>
+            <div class="exp-flip-face exp-flip-back">
+              <span class="exp-flip-eyebrow">Qué incluye</span>
+              <ul>
+                <li>Asistente IA</li>
+                <li>Premios a la Innovación Tecnológica (PIT)</li>
+                <li>Espacio Escuela Estación BA</li>
+              </ul>
+              <span class="exp-flip-hint">Volver</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-copy">
+          <span class="exp-index">04</span>
+          <h3 class="exp-title">Inteligencia<br>Aplicada</h3>
+          <p class="exp-tagline">IA y herramientas digitales al servicio del aula, hoy.</p>
+        </div>
+      </article>
 
-      <button class="exp-arrow exp-arrow-prev" type="button" aria-label="Experiencia anterior" data-exp-prev>
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="exp-arrow exp-arrow-next" type="button" aria-label="Siguiente experiencia" data-exp-next>
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
-      </button>
+      <article class="exp-row exp-rosa" id="inteligencia-expandida">
+        <div class="exp-visual" role="button" tabindex="0" aria-pressed="false" aria-label="Ver qué incluye Inteligencia Expandida">
+          <div class="exp-flip">
+            <div class="exp-flip-face exp-flip-front">
+              <div class="exp-visual-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="4.2" ry="10" transform="rotate(45 12 12)"/></svg>
+              </div>
+              <span class="exp-flip-hint"><i class="exp-flip-hint-icon"></i>Tocá para ver qué incluye</span>
+            </div>
+            <div class="exp-flip-face exp-flip-back">
+              <span class="exp-flip-eyebrow">Qué incluye</span>
+              <ul>
+                <li>Sala TEC 1</li>
+                <li>Sala TEC 2</li>
+                <li>Espacios formativos</li>
+              </ul>
+              <span class="exp-flip-hint">Volver</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-copy">
+          <span class="exp-index">05</span>
+          <h3 class="exp-title">Inteligencia<br>Expandida</h3>
+          <p class="exp-tagline">Tecnologías para ampliar las formas de aprender y construir conocimiento.</p>
+        </div>
+      </article>
+
     </div>
-
-    <div class="exp-dots" role="tablist" aria-label="Ir a experiencia">
-      <button class="exp-dot exp-verde is-active" type="button" data-exp-dot aria-label="Ir a Charlas TEC" aria-selected="true"></button>
-      <button class="exp-dot exp-violeta" type="button" data-exp-dot aria-label="Ir a Foro TEC" aria-selected="false"></button>
-      <button class="exp-dot exp-turquesa" type="button" data-exp-dot aria-label="Ir a Inteligencia Creativa" aria-selected="false"></button>
-      <button class="exp-dot exp-naranja" type="button" data-exp-dot aria-label="Ir a Inteligencia Aplicada" aria-selected="false"></button>
-      <button class="exp-dot exp-rosa" type="button" data-exp-dot aria-label="Ir a Inteligencia Expandida" aria-selected="false"></button>
-    </div>
-    <div class="exp-progress" aria-hidden="true">
-      <span class="exp-progress-bar" id="expProgress"></span>
-    </div>
-
   </div>
 </section>
 
-
+<!-- ===== BOSQUE DE LAS DECISIONES ===== -->
 <section class="section franja franja-oscura" id="bosque">
   <div class="container">
     <div class="franja-grid">
@@ -377,7 +398,7 @@
 
 
 
-
+<!-- ===== PREMIACIÓN ÁGORA IA ===== -->
 <section class="section franja" id="agora-ia">
   <div class="container franja-grid">
     <div class="franja-text">
@@ -395,7 +416,7 @@
   </div>
 </section>
 
-
+<!-- ===== PREMIOS PIT ===== -->
 <section class="section pit" id="pit">
   <div class="container">
     <div class="pit-card">
@@ -410,7 +431,14 @@
           <span class="pit-stat-number">10</span>
           <span class="pit-stat-label">proyectos<br>en competencia</span>
         </div>
-      
+        <!--
+          Para habilitar la votación cuando tengas el link:
+          reemplazá este <button disabled> por un <a href="TU_LINK_DE_VOTACION" target="_blank" rel="noopener" class="pit-vote-btn">
+          (ver instrucciones completas en el chat).
+        
+        <button class="pit-vote-btn" disabled title="El link de votación se habilita más adelante">
+          Votar ahora <span>&rarr;</span>
+        </button>-->
       </div>
       <div class="pit-media">
         <img src="assets/pit-photo.png" alt="Proyecto ganador de los Premios PIT" class="pit-photo">
@@ -420,7 +448,7 @@
 </section>
 
 
-
+<!-- ===== INFO + FAQ ===== -->
 <section class="section info-faq" id="faq">
   <div class="container">
     <div class="info-grid">
@@ -537,7 +565,7 @@
   </div>
 </section>
 
-
+<!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="container footer-inner">
     <p class="footer-note"><em>.</em></p>

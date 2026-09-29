@@ -7,11 +7,11 @@
 <meta name="description" content="TecWeek ED 2026: una jornada gratuita para imaginar la escuela que viene, con la inteligencia artificial como eje central. Viernes 30 de octubre, Usina del Arte, La Boca, CABA. Abierta a toda la comunidad educativa.">
 <link rel="canonical" href="https://tecweeked.bue.edu.ar/">
 
-
+<!-- Favicon (usa la mascota C-PAW ya publicada en el sitio) -->
 <link rel="icon" type="image/png" href="assets/robodog.png">
 <link rel="apple-touch-icon" href="assets/robodog.png">
 
-
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc.) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tecweeked.bue.edu.ar/">
 <meta property="og:title" content="TecWeek ED 2026 | Buenos Aires">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://tecweeked.bue.edu.ar/assets/hero-evento.png">
 <meta property="og:locale" content="es_AR">
 
-
+<!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TecWeek ED 2026 | Buenos Aires">
 <meta name="twitter:description" content="Una jornada gratuita para imaginar la escuela que viene, con la inteligencia artificial como eje central. Viernes 30 de octubre, Usina del Arte, CABA.">
@@ -28,11 +28,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link rel="preload" href="assets/fonts/N27-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Systemia-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Inter: respaldo para los caracteres que la versión de prueba de Systemia no incluye -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Google Analytics (GA4) -->
 <!-- Reemplazá G-XXXXXXXXXX por tu Measurement ID real (lo sacás en analytics.google.com) -->
@@ -84,7 +80,7 @@
 </head>
 <body>
 
-
+<!-- ===== HEADER ===== -->
 <header class="site-header" id="header">
   <div class="container header-inner">
     <a href="#top" class="logo">
@@ -102,6 +98,7 @@
       <span></span><span></span><span></span>
     </button>
 
+    <!-- Menú del hamburguesa (solo mobile/tablet): únicamente Agenda, Mapa y Premios PIT -->
     <nav class="main-nav mobile-nav" id="mainNav" aria-label="Menú principal">
       <a href="AGENDA_PDF_PENDIENTE.pdf" target="_blank" rel="noopener">Agenda</a>
       <a href="#top">Recursos</a>
@@ -110,7 +107,7 @@
   </div>
 </header>
 
-
+<!-- ===== BANNER PRINCIPAL ===== -->
 <section class="hero" id="top">
   <div class="container">
     <nav class="chip-nav hero-chip-nav" id="heroChipNav" aria-label="Secciones del evento">
@@ -120,7 +117,7 @@
       <a href="#inteligencia-aplicada" class="nav-chip nav-chip-naranja">Inteligencia Aplicada</a>
       <a href="#inteligencia-expandida" class="nav-chip nav-chip-rosa">Inteligencia Expandida</a>
     </nav>
-  
+    <!--<img src="assets/tec-logo1.png" alt="TecWeek ED Buenos Aires" class="hero-logo">-->
   </div>
   <div class="container hero-inner">
     <div class="hero-copy">
@@ -206,7 +203,7 @@
   </div>
 </section>
 
-
+<!-- ===== UN EVENTO ÚNICO (4 EJES) ===== -->
 <section class="section ejes">
   <div class="container ejes-grid">
     <div class="ejes-text">
@@ -226,13 +223,14 @@
   </div>
 </section>
 
-
+<!-- ===== CINCO EXPERIENCIAS ===== -->
 <section class="section experiencias" id="espacios">
   <div class="container">
 
-    <h2>Un mismo día, cinco experiencias</h2>
+    <h2>Cinco experiencias, un mismo día</h2>
     <p class="section-intro">
-      Elegí cómo recorrer la jornada: experiencias lúdicas, conversaciones, propuestas para experimentar y espacios de intercambio.<br> Deslizá o usá las flechas para ver las cinco.
+      Elegí cómo recorrer la jornada: charlas, talleres y espacios para visitar,
+      aprender e interactuar. Deslizá o usá las flechas para ver las cinco.
     </p>
 
     <div class="exp-carousel">
@@ -245,12 +243,12 @@
           <div class="exp-slide-copy">
             <span class="exp-slide-index">01</span>
             <h3 class="exp-slide-title">Charlas TEC</h3>
-            <p class="exp-slide-tagline">Destacados referentes en educación, tecnología e innovación comparten ideas y experiencias para pensar la educación del presente y del futuro.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
+            <p class="exp-slide-tagline">Grandes voces de la educación y la tecnología en el escenario principal.</p>
+            
             <ul class="exp-slide-list">
-              <li><em>Charlas</em></li>
-              <li><em>Paneles de referentes</em></li>
-              <li><em>Espacios para aprender</em></li>
+              <li>Charlas</li>
+              <li>Paneles de referentes</li>
+              <li>Espacios para aprender</li>
             </ul>
           </div>
         </article>
@@ -262,12 +260,12 @@
           <div class="exp-slide-copy">
             <span class="exp-slide-index">02</span>
             <h3 class="exp-slide-title">Foro TEC</h3>
-            <p class="exp-slide-tagline">Paneles y conversaciones sobre proyectos y experiencias que están transformando las formas de enseñar y aprender con tecnologías.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
+            <p class="exp-slide-tagline">Debate abierto entre docentes, líderes, startups y gobierno.</p>
+        
             <ul class="exp-slide-list">
-              <li><em>Mesas de discusión</em></li>
-              <li><em>Talleres colaborativos</em></li>
-              <li><em>Espacios para interactuar</em></li>
+              <li>Mesas de discusión</li>
+              <li>Talleres colaborativos</li>
+              <li>Espacios para interactuar</li>
             </ul>
           </div>
         </article>
@@ -279,12 +277,12 @@
           <div class="exp-slide-copy">
             <span class="exp-slide-index">03</span>
             <h3 class="exp-slide-title">Inteligencia Creativa</h3>
-            <p class="exp-slide-tagline">Crear, experimentar e inventar con tecnologías</p>
-              <span class="exp-slide-eyebrow">Qué incluye</span>
+            <p class="exp-slide-tagline">Arte, diseño y creatividad potenciados por la tecnología.</p>
+           
             <ul class="exp-slide-list">
-              <li><em>Lab Tec</em></li>
-              <li><em>Lab Lúdico</em> </li>
-              
+              <li>Espacio Maker · Robot BA</li>
+              <li>Lab Lúdico · Lab Arte</li>
+              <li>Espacios para visitar</li>
             </ul>
           </div>
         </article>
@@ -298,12 +296,12 @@
           <div class="exp-slide-copy">
             <span class="exp-slide-index">04</span>
             <h3 class="exp-slide-title">Inteligencia Aplicada</h3>
-            <p class="exp-slide-tagline">Usar tecnologías en la escuela.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
+            <p class="exp-slide-tagline">IA y herramientas digitales al servicio del aula, hoy.</p>
+    
             <ul class="exp-slide-list">
-              <li><em>Espacio Asistente IA</em></li>
-              <li><em>Entrega de Premios a la Innovación Tecnológica (PIT)</em></li>
-              <li><em>Espacio Escuela Estación BA</em></li>
+              <li>Asistente IA</li>
+              <li>Premios a la Innovación Tecnológica (PIT)</li>
+              <li>Espacio Escuela Estación BA</li>
             </ul>
           </div>
         </article>
@@ -317,11 +315,12 @@
           <div class="exp-slide-copy">
             <span class="exp-slide-index">05</span>
             <h3 class="exp-slide-title">Inteligencia Expandida</h3>
-            <p class="exp-slide-tagline">Tecnologías para ampliar las formas de aprender y de construir conocimiento.</p>
-            <span class="exp-slide-eyebrow">Qué incluye</span>
+            <p class="exp-slide-tagline">Tecnologías para ampliar las formas de aprender y construir conocimiento.</p>
+         
             <ul class="exp-slide-list">
-              <li><em>Espacios formativos en Sala TEC 1 - Sala TEC 2</em></li>
-              
+              <li>Sala TEC 1</li>
+              <li>Sala TEC 2</li>
+              <li>Espacios formativos</li>
             </ul>
           </div>
         </article>
@@ -350,7 +349,7 @@
   </div>
 </section>
 
-
+<!-- ===== BOSQUE DE LAS DECISIONES ===== -->
 <section class="section franja franja-oscura" id="bosque">
   <div class="container">
     <div class="franja-grid">
@@ -377,7 +376,7 @@
 
 
 
-
+<!-- ===== PREMIACIÓN ÁGORA IA ===== -->
 <section class="section franja" id="agora-ia">
   <div class="container franja-grid">
     <div class="franja-text">
@@ -395,7 +394,7 @@
   </div>
 </section>
 
-
+<!-- ===== PREMIOS PIT ===== -->
 <section class="section pit" id="pit">
   <div class="container">
     <div class="pit-card">
@@ -410,7 +409,14 @@
           <span class="pit-stat-number">10</span>
           <span class="pit-stat-label">proyectos<br>en competencia</span>
         </div>
-      
+        <!--
+          Para habilitar la votación cuando tengas el link:
+          reemplazá este <button disabled> por un <a href="TU_LINK_DE_VOTACION" target="_blank" rel="noopener" class="pit-vote-btn">
+          (ver instrucciones completas en el chat).
+        
+        <button class="pit-vote-btn" disabled title="El link de votación se habilita más adelante">
+          Votar ahora <span>&rarr;</span>
+        </button>-->
       </div>
       <div class="pit-media">
         <img src="assets/pit-photo.png" alt="Proyecto ganador de los Premios PIT" class="pit-photo">
@@ -420,7 +426,7 @@
 </section>
 
 
-
+<!-- ===== INFO + FAQ ===== -->
 <section class="section info-faq" id="faq">
   <div class="container">
     <div class="info-grid">
@@ -537,7 +543,7 @@
   </div>
 </section>
 
-
+<!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="container footer-inner">
     <p class="footer-note"><em>.</em></p>
