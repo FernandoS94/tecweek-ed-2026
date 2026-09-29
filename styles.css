@@ -601,30 +601,34 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- 4 ejes ---------- */
 .ejes { background: var(--claro); }
 
-.ejes-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 50px;
+.ejes-content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 36px;
 }
 
-.ejes-text h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin-bottom: 16px; }
-.ejes-text p { color: var(--texto-suave); font-size: 1.05rem; max-width: 480px; }
+.ejes-text h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin: 0 auto 16px; max-width: 720px; }
+.ejes-text p { color: var(--texto-suave); font-size: 1.05rem; max-width: 800px; margin: 0 auto; }
 
-.ejes-list { display: flex; flex-direction: column; gap: 10px; }
-
-.eje {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.3rem;
-  padding: 16px 22px;
-  border-radius: 12px;
-  color: #fff;
+/* La tira de píldoras es muy ancha y "chata" (ratio ~8.5:1): en pantallas angostas se
+   volvería ilegible si se achica sin límite, así que se le pone un ancho mínimo y, si no
+   entra, se puede deslizar horizontalmente en vez de encogerse de más. */
+.ejes-image-wrap {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
-.eje-verde { background: var(--verde); }
-.eje-violeta { background: var(--violeta); }
-.eje-turquesa { background: var(--turquesa); }
-.eje-naranja { background: var(--naranja); }
+.ejes-image {
+  display: block;
+  width: 100%;
+  min-width: 480px;
+  height: auto;
+  margin: 0 auto;
+}
 
 /* ---------- Experiencias / tarjetas ---------- */
 .experiencias { background: #F3F1EA; }
@@ -1214,7 +1218,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (max-width: 900px) {
-  .ejes-grid { grid-template-columns: 1fr; }
   .mapa-grid { grid-template-columns: 1fr; }
   .streaming-grid { grid-template-columns: 1fr; }
   .info-grid { grid-template-columns: 1fr; gap: 32px; }
