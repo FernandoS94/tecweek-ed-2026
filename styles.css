@@ -876,7 +876,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .franja-text .claro { color: #fff; }
 .franja-text .claro-sub { color: rgba(255,255,255,.7); }
 
-.agora-media { flex: 1 1 420px; max-width: 480px; }
+.agora-media { flex: 1 1 420px; max-width: 800px; }
 .agora-img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
 
 .bosque-media { margin-top: 44px; }
