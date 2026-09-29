@@ -102,7 +102,6 @@ setInterval(updateCountdown, 1000);
   const nextBtn = document.querySelector('[data-exp-next]');
 
   const progress = document.getElementById('expProgress');
-  const section = document.querySelector('.experiencias');
 
   let current = 0;
   let autoplay;
@@ -111,14 +110,6 @@ setInterval(updateCountdown, 1000);
 
   // Si la persona pidió "reducir movimiento" en su sistema: sin autoplay y sin desplazamiento animado
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  const fondos = [
-    '#EEF7E9',
-    '#F1EEFF',
-    '#EAF9F8',
-    '#FFF3EA',
-    '#FCEEF5'
-  ];
 
   function updateUI(index, onClone = false){
 
@@ -136,9 +127,6 @@ setInterval(updateCountdown, 1000);
       progress.style.width =
         `${((index+1)/total)*100}%`;
     }
-
-    section.style.background =
-      fondos[index] || '#F3F1EA';
   }
 
   // Posición que deja al slide centrado dentro del track (usa medidas reales, no estimaciones)

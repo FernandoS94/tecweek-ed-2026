@@ -599,13 +599,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .section-label {
   font-size: 0.85rem;
-  color: var(--texto-suave);
+  color: white;
   margin-bottom: 10px;
 }
-.section-label-claro { color: #85007B; }
+.section-label-claro { color: #E3B5DF; }
 
 .section-intro {
-  color: var(--texto-suave);
+  color: var white;
   max-width: 560px;
   margin-top: 14px;
   font-size: 1.05rem;
@@ -873,11 +873,31 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Franjas (Bosque / Bienestar / Streaming) ---------- */
 .franja { background: #fff; border-top: 1px solid var(--borde); }
-/* Violeta pastel: "El Bosque de las Decisiones" es la sección más oscura de la página;
-   este tono (--claro con ~14% de --violeta, mismo porcentaje que usan los fondos suaves
-   de categoría en el carrusel) la aclara y le da un aire de "bosque de noche" sin perder
-   contraste ni recurrir al verde, que no existe en la paleta oficial. */
-.franja-oscura { background: #E4D7E1; border-top: none; }
+/* Violeta oficial sólido: "El Bosque de las Decisiones" es la sección más oscura de la
+   página a propósito. Con este fondo el texto vuelve a blanco (como el resto de las
+   franjas oscuras del sitio), en vez del texto oscuro que usa la versión pastel. */
+.franja-oscura { background: #5C0055; border-top: none; }
+
+/* Freedom Gradient: mismo fondo del hero (mismos dos archivos, mismo ajuste de legibilidad
+   ya resuelto), reutilizado acá porque el layout es igual (texto a la izquierda, imagen a
+   la derecha) — así el azul/violeta queda siempre detrás del texto claro. */
+.franja-gradiente {
+  position: relative;
+  border-top: none;
+  background-color: #5C0055;
+  background-image:
+    url('assets/freedom-gradient.webp'),
+    linear-gradient(90deg, #33FFFF 0%, #2763A5 11%, #5C0055 50%, #EE9CCA 100%);
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 900px) {
+  .franja-gradiente {
+    background-image:
+      url('assets/freedom-gradient-mobile.webp'),
+      linear-gradient(180deg, #33FFFF 0%, #2763A5 9%, #5C0055 60%, #EE9CCA 100%);
+  }
+}
 
 .franja-grid {
   display: flex;
@@ -890,8 +910,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .franja-text { flex: 1 1 380px; }
 .franja-text h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 14px; }
 .franja-text p { color: var(--texto-suave); max-width: 560px; font-size: 1.02rem; }
-.franja-text .claro { color: #5C0055; }
-.franja-text .claro-sub { color: #99008D; }
+.franja-text .claro { color: #fff; }
+.franja-text .claro-sub { color: rgba(255,255,255,.7); }
 
 .agora-media { flex: 1 1 420px; max-width: 480px; }
 .agora-img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
@@ -901,8 +921,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .franja-tags { display: flex; gap: 10px; flex-wrap: wrap; }
 .tag {
-  border: 1px solid rgba(92,0,85,.35);
-  color: #85007B;
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
   padding: 8px 16px;
   border-radius: 999px;
   font-size: 0.88rem;
@@ -1218,7 +1238,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    lo justo (anclada a la derecha) para que el azul quede siempre 40px a la izquierda del texto (con margen de seguridad) y el
    cian sólo ocupe el margen libre. En pantallas anchas es 100% y se ve el degradé completo. */
 @media (min-width: 901px) {
-  .hero {
+  .hero, .franja-gradiente {
     background-size: max(100%, calc(min((100vw + 1160px) / 2 + 16px, 100vw + 16px) / 0.89)) 100%, 100% 100%;
     background-position: 100% 0, 0 0;
   }
