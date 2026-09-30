@@ -272,6 +272,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .header-actions .link-hide-mobile:hover { color: #fff; }
 
+.header-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transition: background .15s ease, color .15s ease;
+}
+.header-social .icon { width: 30px; height: 30px; }
+.header-social:hover { color: #fff; background: rgba(255,255,255,.12); }
+
 .header-actions .btn-primary span { display: inline-block; transition: transform .15s ease; }
 .header-actions .btn-primary:hover span { transform: translateX(2px); }
 
