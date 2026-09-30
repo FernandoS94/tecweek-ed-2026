@@ -1,4 +1,19 @@
+/* =========================================================
+   TecWeek ED 2026 — Estilos
+   Tokens de marca (reemplazar cuando lleguen los assets finales)
+========================================================= */
 
+:root {
+  /* Paleta OFICIAL de marca (5 colores + neutros). Los nombres de variable son históricos
+     -cada categoría del sitio ya tenía un color asignado (verde=Charlas TEC, violeta=Foro TEC,
+     turquesa=Inteligencia Creativa, naranja=Inteligencia Aplicada, rosa=Inteligencia Expandida)-
+     así que se mantienen para no renombrar clases en todo el sitio, pero ahora cada uno apunta
+     al color oficial que le corresponde a esa categoría. La paleta oficial no tiene verde.
+       --verde    -> Azul oficial     #2763A5  (Charlas TEC)
+       --violeta  -> Violeta oficial  #5C0055  (Foro TEC)
+       --turquesa -> Celeste oficial  #62CFF6  (Inteligencia Creativa)
+       --naranja  -> Durazno oficial  #F0C79D  (Inteligencia Aplicada)
+       --rosa     -> Rosa oficial     #EE9CCA  (Inteligencia Expandida) */
   --verde: #2763A5;
   --violeta: #5C0055;
   --turquesa: #62CFF6;
@@ -30,7 +45,12 @@
   --container: 1160px;
 }
 
-
+/* ===== Tipografía de marca =====
+   Titulares: N27 Regular (siempre en mayúsculas)
+   Textos:    Systemia Regular / Bold (mayúsculas y minúsculas)
+   Archivos en assets/fonts/. Si un archivo no carga, el navegador usa Inter (Google Fonts).
+   OJO: la versión "Systemia Test" no incluye ? ( ) : + | ni comillas y guiones largos; esos
+   caracteres se dibujan con Inter hasta contar con la versión completa de la fuente. */
 @font-face {
   font-family: 'N27';
   src: url('assets/fonts/N27-Regular.woff2') format('woff2');
@@ -130,7 +150,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .btn-primary { background: var(--brand-gradient); color: #fff; border: none; }
 .btn-primary:hover { filter: brightness(1.1); }
 
-
+/* Blanco sólido en vez del degradé de marca: sobre el fondo Freedom Gradient del hero,
+   es el contraste más fuerte posible para el CTA principal (el degradé se "camuflaba"
+   un poco con el fondo, que usa esos mismos tonos). El botón chico del header sigue con
+   el degradé a propósito — es jerarquía, no inconsistencia: el CTA grande del hero pega
+   más fuerte que el mini-CTA siempre visible del header. */
 .btn-gradient {
   background: #fff;
   color: var(--brand-blue);
@@ -152,7 +176,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .btn-text { padding: 11px 4px; text-decoration: underline; text-underline-offset: 3px; }
 
-.btn-lg { padding: 15px 30px; font-size: 1.1rem; }
+.btn-lg { padding: 20px 34px; font-size: 1.22rem; }
 
 .btn-disabled {
   background: #EDEBE3;
@@ -357,8 +381,8 @@ ul { margin: 0; padding: 0; list-style: none; }
    (antes quedaba un hueco grande a la derecha, herencia de cuando estaba "Preguntas
    frecuentes" acá también). */
 .hero-actions .btn {
-  flex: 1 1 0;
-  max-width: 250px;   /* ajustá este número al ancho que quieras */
+    flex: 1 1 0;
+  max-width: 270px;   /* ajustá este número al ancho que quieras */
   justify-content: center;
 }
 /* box-shadow en vez de border: así el contorno se puede engrosar sin sumarle tamaño
