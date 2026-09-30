@@ -1,19 +1,4 @@
-/* =========================================================
-   TecWeek ED 2026 — Estilos
-   Tokens de marca (reemplazar cuando lleguen los assets finales)
-========================================================= */
 
-:root {
-  /* Paleta OFICIAL de marca (5 colores + neutros). Los nombres de variable son históricos
-     -cada categoría del sitio ya tenía un color asignado (verde=Charlas TEC, violeta=Foro TEC,
-     turquesa=Inteligencia Creativa, naranja=Inteligencia Aplicada, rosa=Inteligencia Expandida)-
-     así que se mantienen para no renombrar clases en todo el sitio, pero ahora cada uno apunta
-     al color oficial que le corresponde a esa categoría. La paleta oficial no tiene verde.
-       --verde    -> Azul oficial     #2763A5  (Charlas TEC)
-       --violeta  -> Violeta oficial  #5C0055  (Foro TEC)
-       --turquesa -> Celeste oficial  #62CFF6  (Inteligencia Creativa)
-       --naranja  -> Durazno oficial  #F0C79D  (Inteligencia Aplicada)
-       --rosa     -> Rosa oficial     #EE9CCA  (Inteligencia Expandida) */
   --verde: #2763A5;
   --violeta: #5C0055;
   --turquesa: #62CFF6;
@@ -45,12 +30,7 @@
   --container: 1160px;
 }
 
-/* ===== Tipografía de marca =====
-   Titulares: N27 Regular (siempre en mayúsculas)
-   Textos:    Systemia Regular / Bold (mayúsculas y minúsculas)
-   Archivos en assets/fonts/. Si un archivo no carga, el navegador usa Inter (Google Fonts).
-   OJO: la versión "Systemia Test" no incluye ? ( ) : + | ni comillas y guiones largos; esos
-   caracteres se dibujan con Inter hasta contar con la versión completa de la fuente. */
+
 @font-face {
   font-family: 'N27';
   src: url('assets/fonts/N27-Regular.woff2') format('woff2');
@@ -150,12 +130,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .btn-primary { background: var(--brand-gradient); color: #fff; border: none; }
 .btn-primary:hover { filter: brightness(1.1); }
 
+
 .btn-gradient {
-  background: var(--brand-gradient);
-  color: #fff;
+  background: #fff;
+  color: var(--brand-blue);
   border: none;
 }
-.btn-gradient:hover { filter: brightness(1.08); }
+.btn-gradient:hover { background: #F2EFE9; }
 .btn-gradient svg { flex-shrink: 0; }
 
 .btn-outline { border-color: var(--oscuro); color: var(--oscuro); background: transparent; }
@@ -171,7 +152,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .btn-text { padding: 11px 4px; text-decoration: underline; text-underline-offset: 3px; }
 
-.btn-lg { padding: 18px 38px; font-size: 1.15rem; }
+.btn-lg { padding: 15px 30px; font-size: 1.1rem; }
 
 .btn-disabled {
   background: #EDEBE3;
@@ -281,7 +262,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-radius: 50%;
   transition: background .15s ease, color .15s ease;
 }
-.header-social .icon { width: 30px; height: 30px; }
+.header-social .icon { width: 20px; height: 20px; }
 .header-social:hover { color: #fff; background: rgba(255,255,255,.12); }
 
 .header-actions .btn-primary span { display: inline-block; transition: transform .15s ease; }
@@ -367,12 +348,27 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .hero-actions {
   display: flex;
-  align-items: center;
-  gap: 50px;
+  align-items: stretch;
+  gap: 16px;
   flex-wrap: wrap;
   margin-bottom: 28px;
 }
-.hero-actions .btn-outline { border-color: rgba(255,255,255,.4); color: #fff; }
+/* Los dos botones, lado a lado, se reparten el 100% del ancho de la columna de texto
+   (antes quedaba un hueco grande a la derecha, herencia de cuando estaba "Preguntas
+   frecuentes" acá también). */
+.hero-actions .btn {
+  flex: 1 1 0;
+  max-width: 250px;   /* ajustá este número al ancho que quieras */
+  justify-content: center;
+}
+/* box-shadow en vez de border: así el contorno se puede engrosar sin sumarle tamaño
+   al botón (un border sí lo haría, y quedaría más grande que "Inscribirme" al lado,
+   que no tiene borde). */
+.hero-actions .btn-outline {
+  border: none;
+  box-shadow: inset 0 0 0 2.5px rgba(255,255,255,.55);
+  color: #fff;
+}
 .hero-actions .btn-outline:hover { background: #fff; color: var(--oscuro); }
 .hero-actions .btn-text { color: rgba(255,255,255,.75); }
 
