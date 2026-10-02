@@ -500,7 +500,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: auto;
   /* Imagen vertical (retrato): se limita por ALTO, no por ancho — si se estirara al
      100% del ancho de la columna quedaría gigante, porque es mucho más alta que ancha. */
-  height: clamp(400px, 68vh, 720px);
+  /* Antes usaba vh (alto de pantalla): a mismo ancho, en un monitor de escritorio más
+     alto que una notebook, la imagen se agrandaba mucho y —al estar anclada por abajo—
+     crecía hacia arriba, quedando "más alta". Con vw (ancho) el tamaño ya no depende
+     de la altura del monitor, se mantiene consistente. */
+  height: clamp(380px, 34vw, 600px);
   max-width: 100%;
 }
 
