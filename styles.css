@@ -402,6 +402,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   flex-wrap: wrap;
   font-size: 1rem;
 }
+/* Siempre en su propia línea: en el rango ~820-900px alcanzaba a entrar en el mismo
+   renglón que fecha/ubicación, y quedaba inconsistente respecto al resto de los anchos. */
+.meta-item-break { flex-basis: 100%; }
 .meta-item {
   display: inline-flex;
   align-items: center;
@@ -1099,11 +1102,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .header-inner { position: relative; }
 
-  /* Dropdown con Agenda / Mapa / Premios PIT, anclado debajo del header */
+  /* Dropdown anclado debajo del header. Formato adoptado de tecweek.com.ar: el link
+     principal (Agenda) como botón píldora con el degradé de marca, los secundarios como
+     texto simple, y las redes sociales como fila de íconos al final. */
   .main-nav.mobile-nav.is-open {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
     position: absolute;
     top: calc(100% + 1px);
     left: 0;
@@ -1112,19 +1117,57 @@ ul { margin: 0; padding: 0; list-style: none; }
     border: 1px solid rgba(255,255,255,.08);
     border-top: none;
     border-radius: 0 0 14px 14px;
-    padding: 6px 24px 16px;
+    padding: 16px 20px 18px;
     box-shadow: 0 18px 34px -14px rgba(0,0,0,.5);
   }
-  .main-nav.mobile-nav.is-open a {
-    padding: 13px 2px;
-    font-size: 0.98rem;
+
+  .main-nav.mobile-nav.is-open .mobile-nav-btn {
+    text-align: center;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+    border-radius: 999px;
+    background: var(--brand-gradient);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .main-nav.mobile-nav.is-open .mobile-nav-btn:hover,
+  .main-nav.mobile-nav.is-open .mobile-nav-btn:focus-visible { color: #fff; filter: brightness(1.08); }
+
+  .main-nav.mobile-nav.is-open .mobile-nav-link {
+    padding: 11px 2px;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #D1D5DB;
     border-bottom: 1px solid rgba(255,255,255,.07);
   }
-  .main-nav.mobile-nav.is-open a:last-child { border-bottom: none; }
-  .main-nav.mobile-nav.is-open a:hover,
-  .main-nav.mobile-nav.is-open a:focus-visible { color: #fff; }
+  .main-nav.mobile-nav.is-open .mobile-nav-link:last-of-type { border-bottom: none; }
+  .main-nav.mobile-nav.is-open .mobile-nav-link:hover,
+  .main-nav.mobile-nav.is-open .mobile-nav-link:focus-visible { color: #fff; }
+
+  .main-nav.mobile-nav.is-open .mobile-nav-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .main-nav.mobile-nav.is-open .mobile-nav-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #D1D5DB;
+    transition: background .15s ease, color .15s ease;
+  }
+  .main-nav.mobile-nav.is-open .mobile-nav-social a:hover,
+  .main-nav.mobile-nav.is-open .mobile-nav-social a:focus-visible {
+    color: #fff;
+    background: rgba(255,255,255,.12);
+  }
+  .main-nav.mobile-nav.is-open .mobile-nav-social .icon { width: 20px; height: 20px; }
 
   .site-header { position: sticky; }
 }
@@ -1180,6 +1223,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 600px) {
   body { background-attachment: scroll; }
   .hero { padding-top: 50px; }
+  /* Acá la tira de píldoras ya no entra completa (min-width:480px) y hay que deslizarla.
+     El desvanecido en el borde derecho es la única pista visual de que sigue, si no, el
+     corte parece contenido roto. */
+  .ejes-image-wrap {
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 90%, transparent 100%);
+            mask-image: linear-gradient(90deg, #000 0%, #000 90%, transparent 100%);
+  }
   .hero-logo { height: 42px; margin-top: 22px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { justify-content: center; }
@@ -1222,8 +1272,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Ajustes finos para celulares chicos (320–420px) */
 @media (max-width: 420px) {
   .container { padding: 0 16px; }
-  .header-inner { gap: 14px; padding-top: 14px; padding-bottom: 14px; }
-  .logo-img { height: 24px; }
+  .header-inner { gap: 10px; padding-top: 14px; padding-bottom: 14px; }
+  .logo-img { height: 20px; }
+  /* A 320px el botón "Inscribirme" del header no entraba (se pasaba 32px del borde,
+     oculto por el overflow-x:hidden del body pero cortado visualmente igual). */
+  .header-actions { gap: 10px; }
+  .header-actions .btn-primary { padding: 9px 14px; font-size: 0.82rem; }
   .hero-title { font-size: clamp(1.7rem, 7vw, 2.1rem); }
   .hero-logo { height: 34px; margin-top: 18px; }
   .hero-subtitle { font-size: 0.98rem; }
@@ -1231,10 +1285,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   .section { padding: 56px 0; }
   .chip-nav { gap: 8px; }
   .nav-chip { padding: 6px 12px; font-size: 0.78rem; }
-  .countdown { gap: 8px; padding: 16px 10px; }
-  .countdown-grid { gap: 8px; }
-  .countdown-item { min-width: 52px; }
-  .countdown-number { font-size: 1.25rem; }
+  .countdown { gap: 8px; padding: 16px 8px; }
+  /* gap más chico + label con menos letter-spacing: a 320px, "SEGUNDOS" + los separadores
+     no entraban en una sola línea con el gap/padding original (se cortaban 18px) */
+  .countdown-grid { gap: 5px; }
+  .countdown-item { min-width: 48px; }
+  .countdown-number { font-size: 1.2rem; }
+  .countdown-label { font-size: 0.62rem; letter-spacing: .02em; }
   .countdown-kicker { font-size: 0.72rem; }
   .countdown-note { font-size: 0.78rem; }
   .card { padding: 24px 20px 26px; }
