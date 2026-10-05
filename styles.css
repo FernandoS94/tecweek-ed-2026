@@ -149,6 +149,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .btn-primary { background: var(--brand-gradient); color: #fff; border: none; }
 .btn-primary:hover { filter: brightness(1.1); }
+/* Referencia: "Inscribirme" sólido blanco en el header, igual que en el hero. */
+.header-btn-white { background: #fff; color: var(--brand-blue); }
+.header-btn-white:hover { filter: none; background: #F2EFE9; }
+
+/* "Inscribirme" del hero: azul sólido (referencia), no el degradé de marca. */
+.btn-solid { background: var(--brand-blue); color: #fff; border: none; }
+.btn-solid:hover { background: var(--brand-blue-hover); }
 
 /* Blanco sólido en vez del degradé de marca: sobre el fondo Freedom Gradient del hero,
    es el contraste más fuerte posible para el CTA principal (el degradé se "camuflaba"
@@ -343,23 +350,22 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin-bottom: 26px;
 }
 
-.hero-kicker {
+/* El wordmark real (mismo archivo que el logo del header) en vez del texto "TecWeek ED"
+   con contorno — referencia pedida explícitamente por el cliente. */
+.hero-logo-big {
   display: block;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6.6vw, 5rem);
-  line-height: 0.92;
-  letter-spacing: .01em;
-  text-transform: uppercase;
-  color: #fff;
-  -webkit-text-stroke: 2px var(--turquesa);
-  text-stroke: 2px var(--naranja);
-  margin: 0 0 4px;
+  height: auto;
+  width: clamp(260px, 36vw, 480px);
+  margin: 0 0 0px;
 }
 
 .hero-title {
-  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+  font-family: var(--font-body);
+  font-weight: 400;
+  text-transform: none;
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   letter-spacing: -0.01em;
 }
 
@@ -367,8 +373,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 1.08rem;
   color: white;
   max-width: 480px;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
 }
+.hero-subtitle-sub { margin-bottom: 30px; }
 
 .hero-actions {
   display: flex;
@@ -437,11 +444,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #fff;
+  background: #fff;
+  box-shadow: 0 6px 16px -4px rgba(0,0,0,.35);
 }
-.meta-icon-violeta { background: var(--violeta); box-shadow: 0 6px 16px -4px rgba(92,0,85,.7); }
-.meta-icon-turquesa { background: var(--turquesa); box-shadow: 0 6px 16px -4px rgba(98,207,246,.7); }
-.meta-icon-rosa { background: var(--rosa); box-shadow: 0 6px 16px -4px rgba(238,156,202,.7); }
+.meta-icon-violeta { color: var(--violeta); }
+.meta-icon-turquesa { color: var(--turquesa); }
+.meta-icon-rosa { color: var(--rosa); }
 
 /* Barra de info inferior del hero */
 .hero-infobar {
@@ -482,30 +490,28 @@ ul { margin: 0; padding: 0; list-style: none; }
 .infobar-item h4 { font-size: 0.98rem; color: #fff; margin-bottom: 4px; }
 .infobar-item p { font-size: 0.85rem; color: rgba(255,255,255,.55); line-height: 1.35; }
 
-/* Media: foto + lista superpuesta */
+/* Media: caja de referencia ~670×794px. La foto de la docente ya viene pre-recortada
+   casi exactamente a esta proporción (0.844 vs. 0.8438 del target), así que usamos
+   "cover" para que llene el cuadro por completo. */
 .hero-media {
   position: absolute;
   right: max(24px, calc((100vw - 1160px) / 2 + 24px));
-  bottom: 5px;
-  display: flex;
-  justify-content: flex-end;
-  /* La imagen no debe bloquear clics en los botones que quedan debajo de su zona transparente */
+  bottom: -1px;
+  /* El ALTO manda (vw como unidad de escala, no vw de ancho de la caja): así nunca se pasa
+     de la altura real del hero, que la definen el logo + los textos, no el ancho de pantalla.
+     El ancho sale solo de acá vía aspect-ratio, manteniendo la proporción 670×794. */
+  height: clamp(360px, 34vw, 560px);
+  aspect-ratio: 670 / 794;
   pointer-events: none;
-  /* La sombra va en el contenedor (no en la <img>) para que siga la silueta */
   filter: drop-shadow(0 18px 36px rgba(20, 0, 50, .35));
 }
 
 .hero-photo {
   display: block;
-  width: auto;
-  /* Imagen vertical (retrato): se limita por ALTO, no por ancho — si se estirara al
-     100% del ancho de la columna quedaría gigante, porque es mucho más alta que ancha. */
-  /* Antes usaba vh (alto de pantalla): a mismo ancho, en un monitor de escritorio más
-     alto que una notebook, la imagen se agrandaba mucho y —al estar anclada por abajo—
-     crecía hacia arriba, quedando "más alta". Con vw (ancho) el tamaño ya no depende
-     de la altura del monitor, se mantiene consistente. */
-  height: clamp(380px, 34vw, 600px);
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* Scrim fijo: garantiza contraste del texto sin importar qué foto haya debajo */
@@ -556,7 +562,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   text-shadow: 0 2px 10px rgba(0,0,0,.35);
 }
 
-/* Cuenta regresiva — franja con degradé */
+/* Cuenta regresiva — referencia: fondo sólido oscuro en vez del degradé de marca */
 .countdown {
   position: relative;
   z-index: 2;
@@ -564,19 +570,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  width: 66%;
+  width: min(560px, 90%);
   padding: 30px 20px 26px;
   border-radius: 18px;
-  background: linear-gradient(90deg, #1F4F84 0%, #2763A5 30%, #5C0055 100%);
-  margin: 0 0 5px;
+  background: var(--oscuro);
+  /* Centrado (en vez de pegado a la izquierda) y sobresaliendo del borde inferior del
+     hero hacia la sección blanca de abajo, como en la referencia. */
+  margin: 0 auto -80px;
 }
 
 .countdown-kicker {
   margin: 0;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: .18em;
-  text-transform: uppercase;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
   color: #fff;
 }
 
@@ -653,7 +661,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   pointer-events: none;
 }
 
-.hero-bar { display: flex; height: 6px; }
+.hero-bar { display: flex; }
 .hero-bar span { flex: 1; }
 .bar-verde { background: var(--verde); }
 .bar-violeta { background: var(--violeta); }
@@ -680,7 +688,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ---------- 4 ejes ---------- */
-.ejes { background: var(--claro); }
+.ejes {
+  background: var(--claro);
+  /* El contador del hero se mete 80px en esta sección (margin-bottom: -80px): 80 + 60 de aire. */
+  padding-top: 140px;
+}
 
 .ejes-content {
   display: flex;
@@ -882,6 +894,25 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 7px 14px;
 }
 
+/* ---------- Tarjetas de oradores ----------
+   Van a continuación de la tarjeta de su espacio (Charlas TEC, Foro TEC) y heredan su color
+   con la misma clase exp-verde / exp-violeta. Usan la misma estructura que el resto de los
+   slides, así el carrusel las trata igual. */
+/* Retratos verticales: se anclan arriba para que el recorte nunca corte la cabeza. */
+.exp-slide-speaker .exp-slide-photo { object-position: 50% 0; }
+/* Fotos de primer plano (la cara ocupa casi todo el cuadro): se centran un poco más abajo. */
+.exp-slide-speaker .exp-slide-photo.exp-photo-closeup { object-position: 50% 30%; }
+.exp-slide-speaker .exp-slide-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  margin-bottom: 8px;
+}
+.exp-slide-role {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--exp-accent-text);
+  margin: 0 0 12px;
+}
+
 /* Controles */
 .exp-arrow {
   position: absolute;
@@ -907,7 +938,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .exp-arrow-prev { left: 12px; }
 .exp-arrow-next { right: 12px; }
 
-.exp-dots { display: flex; justify-content: center; gap: 12px; margin-top: -14px; }
+.exp-dots { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: -14px; }
 .exp-dot {
   width: 12px;
   height: 12px;
@@ -920,6 +951,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .exp-dot:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 3px; }
 .exp-dot.is-active { transform: scale(1.5); background: var(--exp-accent); }
+/* Puntos de oradores: más chicos, para que los de cada espacio sigan leyéndose como "capítulos". */
+.exp-dot-sub { width: 8px; height: 8px; }
 
 .exp-progress {
   width: 240px;
@@ -1091,6 +1124,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 ========================================================= */
 @media (max-width: 1100px) {
   .header-actions .link-hide-mobile { display: none; }
+  /* Referencia mobile: el header queda solo con el logo y la hamburguesa, sin el botón
+     "Inscribirme" — ya está disponible como CTA grande dentro del propio hero. */
+  .header-actions .btn-primary { display: none; }
   .nav-toggle {
     display: flex;
     flex-direction: column;
@@ -1202,16 +1238,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   .info-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-copy { max-width: none; }
-  .countdown { width: 100%; }
-  .hero-media {
-    position: static;
-    order: -1;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 100%;
-  }
-  .hero-photo { height: clamp(280px, 46vh, 420px); }
+  /* El solapamiento hacia la sección de abajo se achica en mobile: con -80px tapaba
+     el título "Un evento único..." de la siguiente sección. */
+  .countdown { width: 100%; margin: 0 0 -24px; }
+  /* Acá el contador sobresale solo 24px: se vuelve al padding normal de .section. */
+  .ejes { padding-top: 84px; }
+  /* Referencia mobile: sin la foto — va directo de los chips al logo grande. */
+  .hero-media { display: none; }
   .hero-infobar { grid-template-columns: 1fr 1fr; gap: 22px 0; }
   .infobar-item { border-right: none; padding: 0 14px; }
   .infobar-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.09); }
@@ -1235,8 +1268,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             mask-image: linear-gradient(90deg, #000 0%, #000 90%, transparent 100%);
   }
   .hero-logo { height: 42px; margin-top: 22px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
+  /* Referencia mobile: los botones siguen lado a lado, no apilados. */
   .hero-actions .btn { justify-content: center; }
+  /* Referencia mobile: fecha y ubicación lado a lado (grilla fija), no en flex-wrap libre
+     — así el texto largo de la dirección envuelve en su propia columna angosta en vez
+     de necesitar todo el ancho disponible para cada ítem. */
+  .hero-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .meta-item { align-items: flex-start; }
   .pit-card { flex-direction: column; align-items: flex-start; padding: 0; text-align: left; gap: 28px; }
   .pit-stat-number { font-size: 2.6rem; }
   .pit-media { align-self: center; }
@@ -1260,6 +1298,8 @@ ul { margin: 0; padding: 0; list-style: none; }
     min-height: 0;
   }
   .exp-slide-visual { flex: 0 0 190px; }
+  /* Los retratos necesitan más alto que las fotos apaisadas para que entre la cara completa. */
+  .exp-slide-speaker .exp-slide-visual { flex-basis: 260px; }
   .exp-slide-copy {
     text-align: center;
     align-items: center;

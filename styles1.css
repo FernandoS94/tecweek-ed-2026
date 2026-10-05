@@ -150,17 +150,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .btn-primary { background: var(--brand-gradient); color: #fff; border: none; }
 .btn-primary:hover { filter: brightness(1.1); }
 
-/* Blanco sólido en vez del degradé de marca: sobre el fondo Freedom Gradient del hero,
-   es el contraste más fuerte posible para el CTA principal (el degradé se "camuflaba"
-   un poco con el fondo, que usa esos mismos tonos). El botón chico del header sigue con
-   el degradé a propósito — es jerarquía, no inconsistencia: el CTA grande del hero pega
-   más fuerte que el mini-CTA siempre visible del header. */
 .btn-gradient {
-  background: #fff;
-  color: var(--brand-blue);
+  background: var(--brand-gradient);
+  color: #fff;
   border: none;
 }
-.btn-gradient:hover { background: #F2EFE9; }
+.btn-gradient:hover { filter: brightness(1.08); }
 .btn-gradient svg { flex-shrink: 0; }
 
 .btn-outline { border-color: var(--oscuro); color: var(--oscuro); background: transparent; }
@@ -176,7 +171,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .btn-text { padding: 11px 4px; text-decoration: underline; text-underline-offset: 3px; }
 
-.btn-lg { padding: 20px 34px; font-size: 1.22rem; }
+.btn-lg { padding: 18px 38px; font-size: 1.15rem; }
 
 .btn-disabled {
   background: #EDEBE3;
@@ -286,7 +281,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-radius: 50%;
   transition: background .15s ease, color .15s ease;
 }
-.header-social .icon { width: 20px; height: 20px; }
+.header-social .icon { width: 30px; height: 30px; }
 .header-social:hover { color: #fff; background: rgba(255,255,255,.12); }
 
 .header-actions .btn-primary span { display: inline-block; transition: transform .15s ease; }
@@ -372,27 +367,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .hero-actions {
   display: flex;
-  align-items: stretch;
-  gap: 16px;
+  align-items: center;
+  gap: 50px;
   flex-wrap: wrap;
   margin-bottom: 28px;
 }
-/* Los dos botones, lado a lado, se reparten el 100% del ancho de la columna de texto
-   (antes quedaba un hueco grande a la derecha, herencia de cuando estaba "Preguntas
-   frecuentes" acá también). */
-.hero-actions .btn {
-    flex: 1 1 0;
-  max-width: 270px;   /* ajustá este número al ancho que quieras */
-  justify-content: center;
-}
-/* box-shadow en vez de border: así el contorno se puede engrosar sin sumarle tamaño
-   al botón (un border sí lo haría, y quedaría más grande que "Inscribirme" al lado,
-   que no tiene borde). */
-.hero-actions .btn-outline {
-  border: none;
-  box-shadow: inset 0 0 0 2.5px rgba(255,255,255,.55);
-  color: #fff;
-}
+.hero-actions .btn-outline { border-color: rgba(255,255,255,.4); color: #fff; }
 .hero-actions .btn-outline:hover { background: #fff; color: var(--oscuro); }
 .hero-actions .btn-text { color: rgba(255,255,255,.75); }
 
@@ -1099,13 +1079,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .header-inner { position: relative; }
 
-  /* Dropdown anclado debajo del header. Formato adoptado de tecweek.com.ar: el link
-     principal (Agenda) como botón píldora con el degradé de marca, los secundarios como
-     texto simple, y las redes sociales como fila de íconos al final. */
+  /* Dropdown con Agenda / Mapa / Premios PIT, anclado debajo del header */
   .main-nav.mobile-nav.is-open {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     position: absolute;
     top: calc(100% + 1px);
     left: 0;
@@ -1114,57 +1092,19 @@ ul { margin: 0; padding: 0; list-style: none; }
     border: 1px solid rgba(255,255,255,.08);
     border-top: none;
     border-radius: 0 0 14px 14px;
-    padding: 16px 20px 18px;
+    padding: 6px 24px 16px;
     box-shadow: 0 18px 34px -14px rgba(0,0,0,.5);
   }
-
-  .main-nav.mobile-nav.is-open .mobile-nav-btn {
-    text-align: center;
-    padding: 14px 20px;
-    margin-bottom: 10px;
-    border-radius: 999px;
-    background: var(--brand-gradient);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-  .main-nav.mobile-nav.is-open .mobile-nav-btn:hover,
-  .main-nav.mobile-nav.is-open .mobile-nav-btn:focus-visible { color: #fff; filter: brightness(1.08); }
-
-  .main-nav.mobile-nav.is-open .mobile-nav-link {
-    padding: 11px 2px;
-    font-size: 0.95rem;
+  .main-nav.mobile-nav.is-open a {
+    padding: 13px 2px;
+    font-size: 0.98rem;
     font-weight: 600;
     color: #D1D5DB;
     border-bottom: 1px solid rgba(255,255,255,.07);
   }
-  .main-nav.mobile-nav.is-open .mobile-nav-link:last-of-type { border-bottom: none; }
-  .main-nav.mobile-nav.is-open .mobile-nav-link:hover,
-  .main-nav.mobile-nav.is-open .mobile-nav-link:focus-visible { color: #fff; }
-
-  .main-nav.mobile-nav.is-open .mobile-nav-social {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255,255,255,.08);
-  }
-  .main-nav.mobile-nav.is-open .mobile-nav-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: #D1D5DB;
-    transition: background .15s ease, color .15s ease;
-  }
-  .main-nav.mobile-nav.is-open .mobile-nav-social a:hover,
-  .main-nav.mobile-nav.is-open .mobile-nav-social a:focus-visible {
-    color: #fff;
-    background: rgba(255,255,255,.12);
-  }
-  .main-nav.mobile-nav.is-open .mobile-nav-social .icon { width: 20px; height: 20px; }
+  .main-nav.mobile-nav.is-open a:last-child { border-bottom: none; }
+  .main-nav.mobile-nav.is-open a:hover,
+  .main-nav.mobile-nav.is-open a:focus-visible { color: #fff; }
 
   .site-header { position: sticky; }
 }
