@@ -282,24 +282,18 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.82rem;
   font-weight: 500;
   white-space: nowrap;
-  transition: background .15s ease, border-color .15s ease, color .15s ease;
+  cursor: default;
 }
-.nav-chip:hover { color: #fff; background: rgba(11,15,25,.7); border-color: rgba(255,255,255,.32); }
 
 .nav-chip-verde { border-color: rgba(39,99,165,.6); color: #79A4D2; }
-.nav-chip-verde:hover { background: rgba(39,99,165,.24); border-color: var(--verde); color: #fff; }
 
 .nav-chip-violeta { border-color: rgba(92,0,85,.6); color: #E3B5DF; }
-.nav-chip-violeta:hover { background: rgba(92,0,85,.24); border-color: var(--violeta); color: #fff; }
 
 .nav-chip-turquesa { border-color: rgba(98,207,246,.6); color: #62CFF6; }
-.nav-chip-turquesa:hover { background: rgba(98,207,246,.24); border-color: var(--turquesa); color: #fff; }
 
 .nav-chip-naranja { border-color: rgba(240,199,157,.6); color: #F0C79D; }
-.nav-chip-naranja:hover { background: rgba(240,199,157,.24); border-color: var(--naranja); color: #fff; }
 
 .nav-chip-rosa { border-color: rgba(238,156,202,.6); color: #EE9CCA; }
-.nav-chip-rosa:hover { background: rgba(238,156,202,.24); border-color: var(--rosa); color: #fff; }
 
 .header-actions { display: flex; align-items: center; gap: 20px; flex-shrink: 0; margin-left: auto; }
 
@@ -1488,3 +1482,16 @@ a:focus-visible, button:focus-visible {
   .experiencias { transition: background-color .6s ease; }
 }
 
+
+.faq-map-link svg {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
+  margin-right: 0.25em;
+}
+
+/* Links a Google Maps en "¿Dónde?" (info) y en el footer */
+.map-link { text-decoration: underline; text-underline-offset: 3px; }
+.info-item .map-link { color: var(--violeta); }
+.footer-address .map-link { color: rgba(255,255,255,.85); transition: color .15s ease; }
+.footer-address .map-link:hover { color: #fff; }
