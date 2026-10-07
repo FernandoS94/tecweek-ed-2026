@@ -298,20 +298,29 @@ setInterval(updateCountdown, 1000);
 
   });
 
+  // Tiempo que se queda cada tarjeta antes de pasar a la siguiente. Las de orador
+  // (foto + nombre + una línea de rol) se leen rápido; las de categoría (título +
+  // descripción + chips) tienen más para leer y necesitan más tiempo en pantalla.
+  function autoplayDuration(index){
+    const slide = all[index];
+    return slide && slide.classList.contains('exp-slide-speaker') ? 3500 : 6000;
+  }
+
   function startAutoplay(){
 
-    // No arrancar si se pidió reducir movimiento; y evitar intervalos duplicados
+    // No arrancar si se pidió reducir movimiento; y evitar temporizadores duplicados
     if (reduceMotion.matches) return;
-    clearInterval(autoplay);
+    stopAutoplay();
 
-    autoplay = setInterval(()=>{
+    autoplay = setTimeout(()=>{
       goTo(current + 1);
-    },5000);
+      startAutoplay();           // vuelve a programarse con el tiempo que le toque a la nueva tarjeta
+    }, autoplayDuration(current));
 
   }
 
   function stopAutoplay(){
-    clearInterval(autoplay);
+    clearTimeout(autoplay);
   }
 
   track.addEventListener(

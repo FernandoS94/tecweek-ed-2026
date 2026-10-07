@@ -192,6 +192,33 @@ ul { margin: 0; padding: 0; list-style: none; }
   cursor: not-allowed;
 }
 
+/* Genérico para cualquier link/botón "a la espera" (Agenda, por ahora): se ve apagado y no
+   responde al click ni al teclado. Para reactivar un elemento, sacar esta clase + aria-disabled
+   + tabindex="-1" y devolverle su href real — no hace falta tocar nada más. */
+.is-disabled {
+  opacity: .5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Cartelito chico al lado de un texto/botón en espera (ej. "Agenda Próximamente").
+   Pensado para fondos oscuros (header, hero, footer), que es donde vive por ahora. */
+.badge-soon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  color: inherit;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
 /* ---------- Header (nuevo formato claro) ---------- */
 .btn-outline svg { width: 18px; height: 18px; }
 .btn-white { background-color: #fff; color: #000; }
@@ -356,7 +383,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
   height: auto;
   width: clamp(260px, 36vw, 480px);
-  margin: 0 0 0px;
+  margin: 0 0 22px;
 }
 
 .hero-title {
@@ -688,11 +715,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ---------- 4 ejes ---------- */
-.ejes {
-  background: var(--claro);
-  /* El contador del hero se mete 80px en esta sección (margin-bottom: -80px): 80 + 60 de aire. */
-  padding-top: 140px;
-}
+.ejes { background: var(--claro);
+padding-top: 140px}
+
+
 
 .ejes-content {
   display: flex;
@@ -870,6 +896,20 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--exp-accent-text);
   margin-bottom: 8px;
 }
+
+/* Tarjetas de orador (retrato + nombre + rol), dentro de una categoría como Charlas TEC */
+.exp-slide-role {
+  font-size: 1rem;
+  color: var(--texto-suave);
+  max-width: 420px;
+  margin: 0;
+}
+/* Retrato: centrado más arriba que una foto de evento normal, para que la cara
+   quede encuadrada sin importar el alto real de cada imagen (667×833, 900×1124...) */
+.exp-slide-speaker .exp-slide-photo { object-position: 50% 22%; }
+/* Carolina Duek: foto cuadrada de primer plano (400×400) — centrada, no hace falta
+   favorecer un borde como en los retratos de cuerpo entero */
+.exp-photo-closeup { object-position: 50% 35% !important; }
 .exp-slide-list {
   list-style: none;
   display: flex;
@@ -892,25 +932,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .exp-rosa .exp-slide-list li {
   font-size: 0.92rem;
   padding: 7px 14px;
-}
-
-/* ---------- Tarjetas de oradores ----------
-   Van a continuación de la tarjeta de su espacio (Charlas TEC, Foro TEC) y heredan su color
-   con la misma clase exp-verde / exp-violeta. Usan la misma estructura que el resto de los
-   slides, así el carrusel las trata igual. */
-/* Retratos verticales: se anclan arriba para que el recorte nunca corte la cabeza. */
-.exp-slide-speaker .exp-slide-photo { object-position: 50% 0; }
-/* Fotos de primer plano (la cara ocupa casi todo el cuadro): se centran un poco más abajo. */
-.exp-slide-speaker .exp-slide-photo.exp-photo-closeup { object-position: 50% 30%; }
-.exp-slide-speaker .exp-slide-title {
-  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-  margin-bottom: 8px;
-}
-.exp-slide-role {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--exp-accent-text);
-  margin: 0 0 12px;
 }
 
 /* Controles */
@@ -938,7 +959,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .exp-arrow-prev { left: 12px; }
 .exp-arrow-next { right: 12px; }
 
-.exp-dots { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: -14px; }
+.exp-dots { display: flex; justify-content: center; gap: 12px; margin-top: -14px; }
 .exp-dot {
   width: 12px;
   height: 12px;
@@ -951,8 +972,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .exp-dot:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 3px; }
 .exp-dot.is-active { transform: scale(1.5); background: var(--exp-accent); }
-/* Puntos de oradores: más chicos, para que los de cada espacio sigan leyéndose como "capítulos". */
-.exp-dot-sub { width: 8px; height: 8px; }
+
+/* Puntos de los oradores: más chicos que los de categoría, para que se lean como
+   "parte de Charlas TEC" y no como secciones del mismo nivel. */
+.exp-dot-sub { width: 7px; height: 7px; }
+.exp-dot-sub.is-active { transform: scale(1.6); }
 
 .exp-progress {
   width: 240px;
@@ -1108,16 +1132,106 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-footer {
   background: var(--oscuro);
   color: #fff;
-  padding: 40px 0;
+  padding: 64px 0 48px;
 }
 
-.footer-inner {
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Columna 1: logos + tagline + dirección */
+.footer-col-brand { max-width: 360px; }
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.footer-logo-tec { height: 26px; width: auto; display: block; }
+
+.footer-logo-divider {
+  width: 1px;
+  height: 26px;
+  background: rgba(255,255,255,.25);
+}
+
+/* Ojo: "height: 42" sin unidad es inválido — el navegador lo ignora entero y el SVG se
+   renderiza a su tamaño por defecto (enorme). Y fijar el ALTO con ancho automático lo
+   deforma: la regla global "img { max-width:100% }" lo aprieta contra la columna del
+   footer (360px) y, como el alto queda fijo, el logo se ve angosto. Se fija el ANCHO en
+   cambio, que escala manteniendo su proporción real sin estirarse ni achicarse. */
+.footer-logo-ministerio { width: 300px; max-width: 100%; height: auto; display: block; }
+
+.footer-tagline {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+.footer-address {
+  color: rgba(255,255,255,.6);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 320px;
+}
+
+/* Columnas 2 y 3 */
+.footer-heading {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  letter-spacing: .04em;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 13px;
 }
 
-.footer-note { color: rgba(255,255,255,.5); font-size: 0.88rem; }
+.footer-links a {
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color .15s ease;
+}
+
+.footer-links a:hover { color: #fff; }
+
+.footer-social { display: flex; gap: 12px; }
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  transition: background .15s ease, transform .15s ease;
+}
+
+.footer-social-link .icon { width: 20px; height: 20px; }
+
+.footer-social-link:hover {
+  background: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+}
 
 /* =========================================================
    Responsive
@@ -1241,8 +1355,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* El solapamiento hacia la sección de abajo se achica en mobile: con -80px tapaba
      el título "Un evento único..." de la siguiente sección. */
   .countdown { width: 100%; margin: 0 0 -24px; }
-  /* Acá el contador sobresale solo 24px: se vuelve al padding normal de .section. */
-  .ejes { padding-top: 84px; }
   /* Referencia mobile: sin la foto — va directo de los chips al logo grande. */
   .hero-media { display: none; }
   .hero-infobar { grid-template-columns: 1fr 1fr; gap: 22px 0; }
@@ -1255,6 +1367,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .exp-arrow { width: 42px; height: 42px; }
   .exp-arrow-prev { left: 10px; }
   .exp-arrow-next { right: 10px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+  .footer-col-brand { grid-column: 1 / -1; max-width: none; }
 }
 
 @media (max-width: 600px) {
@@ -1298,8 +1413,6 @@ ul { margin: 0; padding: 0; list-style: none; }
     min-height: 0;
   }
   .exp-slide-visual { flex: 0 0 190px; }
-  /* Los retratos necesitan más alto que las fotos apaisadas para que entre la cara completa. */
-  .exp-slide-speaker .exp-slide-visual { flex-basis: 260px; }
   .exp-slide-copy {
     text-align: center;
     align-items: center;
@@ -1311,6 +1424,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* Flechas alineadas al centro de la foto, no del texto */
   .exp-arrow { width: 38px; height: 38px; top: 111px; }
   .exp-arrow svg { width: 16px; height: 16px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+  .footer-col-brand { grid-column: auto; max-width: none; }
+  .footer-logos { justify-content: center; }
+  .footer-address { max-width: none; margin: 0 auto; }
+  .footer-links { align-items: center; }
+  .footer-social { justify-content: center; }
 }
 
 /* Ajustes finos para celulares chicos (320–420px) */

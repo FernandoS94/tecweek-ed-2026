@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> TecWeek ED 2026 • 30 de octubre • Usina del Arte</title>
+<title> Tecweek ED 2026 • 30 de octubre • Usina del Arte</title>
 <meta name="description" content="TecWeek ED 2026: una jornada gratuita para imaginar la escuela que viene, con la inteligencia artificial como eje central. Viernes 30 de octubre, Usina del Arte, La Boca, CABA. Abierta a toda la comunidad educativa.">
 <link rel="canonical" href="https://tecweeked.bue.edu.ar/">
 
@@ -94,16 +94,18 @@
     </a>
 
     <div class="header-actions">
-      <a href="AGENDA_PDF_PENDIENTE.pdf" class="link-hide-mobile" target="_blank" rel="noopener">Agenda</a>
+      <!-- Agenda: deshabilitado hasta tener el PDF. Para reactivar: sacar "is-disabled" y el <span class="badge-soon">,
+           y volver a poner target="_blank" rel="noopener" href="AGENDA_PDF_PENDIENTE.pdf" (o el link real). -->
+      <a href="#" class="link-hide-mobile is-disabled" aria-disabled="true" tabindex="-1">Agenda <span class="badge-soon">Próximamente</span></a>
       <a href="#top" class="link-hide-mobile">Recursos</a>
       <a href="#faq" class="link-hide-mobile">Preguntas frecuentes</a>
       <a href="https://www.instagram.com/educacionba" class="header-social link-hide-mobile" target="_blank" rel="noopener" aria-label="Seguinos en Instagram">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="YOUTUBE_LINK_PENDIENTE" class="header-social link-hide-mobile" target="_blank" rel="noopener" aria-label="Mirá nuestros videos en YouTube">
+      <a href="https://www.youtube.com/@EducacionDigitalBA" class="header-social link-hide-mobile" target="_blank" rel="noopener" aria-label="Mirá nuestros videos en YouTube">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1.5" y="4" width="21" height="16" rx="5"/><path d="M10 8.7v6.6l6-3.3-6-3.3z" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="LINK_INSCRIPCION_PENDIENTE" class="btn btn-primary" target="_blank" rel="noopener">Inscribirme </a>
+      <a href="https://script.google.com/a/macros/bue.edu.ar/s/AKfycbxxVTCqKhXD4bd1T97dSXKL-B5fesiy_dN_dC29YSe3BNbBQRSwX3jnNb3w070K2A/exec" class="btn btn-primary header-btn-white" target="_blank" rel="noopener">Inscribirme </a>
     </div>
 
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -111,11 +113,19 @@
     </button>
 
     <nav class="main-nav mobile-nav" id="mainNav" aria-label="Menú principal">
-      <a href="AGENDA_PDF_PENDIENTE.pdf" target="_blank" rel="noopener">Agenda</a>
-      <a href="#top">Recursos</a>
-      <a href="#faq">Preguntas frecuentes</a>
-      <a href="https://www.instagram.com/educacionba" target="_blank" rel="noopener">Instagram</a>
-      <a href="YOUTUBE_LINK_PENDIENTE" target="_blank" rel="noopener">YouTube</a>
+      <!-- Agenda: deshabilitado hasta tener el PDF. Para reactivar: sacar "is-disabled" y el <span class="badge-soon">,
+           y volver a poner target="_blank" rel="noopener" href="AGENDA_PDF_PENDIENTE.pdf" (o el link real). -->
+      <a href="#" class="mobile-nav-btn is-disabled" aria-disabled="true" tabindex="-1">Agenda <span class="badge-soon">Próximamente</span></a>
+      <a href="#top" class="mobile-nav-link">Recursos</a>
+      <a href="#faq" class="mobile-nav-link">Preguntas frecuentes</a>
+      <div class="mobile-nav-social">
+        <a href="https://www.instagram.com/educacionba" target="_blank" rel="noopener" aria-label="Seguinos en Instagram">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@EducacionDigitalBA" target="_blank" rel="noopener" aria-label="Mirá nuestros videos en YouTube">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1.5" y="4" width="21" height="16" rx="5"/><path d="M10 8.7v6.6l6-3.3-6-3.3z" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
     </nav>
   </div>
 </header>
@@ -123,33 +133,32 @@
 
 <section class="hero" id="top">
   <div class="container">
-    <nav class="chip-nav hero-chip-nav" id="heroChipNav" aria-label="Secciones del evento">
-      <a href="#charlas-tec" class="nav-chip nav-chip-verde">Charlas TEC</a>
-      <a href="#foro-tec" class="nav-chip nav-chip-violeta">Foro TEC</a>
-      <a href="#inteligencia-creativa" class="nav-chip nav-chip-turquesa">Inteligencia Creativa</a>
-    
-      <a href="#inteligencia-expandida" class="nav-chip nav-chip-rosa">Inteligencia Expandida</a>
-    </nav>
+    <div class="chip-nav hero-chip-nav" id="heroChipNav" aria-label="Secciones del evento">
+      <span class="nav-chip nav-chip-verde">Charlas TEC</span>
+      <span class="nav-chip nav-chip-violeta">Foro TEC</span>
+      <span class="nav-chip nav-chip-turquesa">Inteligencia Creativa</span>
+      <span class="nav-chip nav-chip-rosa">Inteligencia Expandida</span>
+    </div>
   
   </div>
   <div class="container hero-inner">
     <div class="hero-copy">
-      <p class="hero-kicker">TecWeek ED</p>
+      <img src="assets/tec-logo1.png" alt="TecWeek ED Buenos Aires" class="hero-logo-big">
       <h1 class="hero-title">Aprendé lo que se viene</h1>
       <p class="hero-subtitle">
-        Una jornada para imaginar la escuela que viene con la inteligencia artificial como eje central. Gratuita y abierta para docentes de todos los niveles y modalidades.
+        Una jornada para imaginar la escuela que viene con la inteligencia artificial como eje central. Gratuita y abierta para docentes y equipos de conducción de todos los niveles y modalidades de la Ciudad.
       </p>
+     
 
       <div class="hero-actions">
-        <a href="LINK_INSCRIPCION_PENDIENTE" class="btn btn-gradient btn-lg" target="_blank" rel="noopener">
+        <a href="https://script.google.com/a/macros/bue.edu.ar/s/AKfycbxxVTCqKhXD4bd1T97dSXKL-B5fesiy_dN_dC29YSe3BNbBQRSwX3jnNb3w070K2A/exec" class="btn btn-solid btn-lg" target="_blank" rel="noopener">
           Inscribirme
-          
         </a>
-        <a href="AGENDA_PDF_PENDIENTE.pdf" class="btn btn-outline btn-lg" target="_blank" rel="noopener">
-          Ver agenda
-          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <!-- Agenda: deshabilitado hasta tener el PDF. Para reactivar: sacar "is-disabled" y el <span class="badge-soon">,
+             y volver a poner target="_blank" rel="noopener" href="AGENDA_PDF_PENDIENTE.pdf" (o el link real). -->
+        <a href="#" class="btn btn-outline btn-lg is-disabled" aria-disabled="true" tabindex="-1">
+          Ver agenda <span class="badge-soon">Próximamente</span>
         </a>
-       
       </div>
 
       <div class="hero-meta">
@@ -165,19 +174,13 @@
           </span>
           <span>Usina del Arte<br>Agustín R. Caffarena 1, CABA</span>
         </a>
-        <span class="meta-item">
-          <span class="meta-icon meta-icon-rosa">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9" cy="7" r="4"/><path d="M23 20v-1a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </span>
-          <span>Para docentes, estudiantes<br>y toda la comunidad educativa de la Ciudad</span>
-        </span>
       </div>
     </div>
 
     <div class="hero-media">
       <picture>
-        <source srcset="assets/ninaVR.webp" type="image/webp">
-        <img src="assets/ninaVR.png" width="900" height="2099" alt="Una estudiante con guardapolvo mirando hacia arriba mientras usa un visor de realidad virtual" class="hero-photo">
+        <source srcset="assets/docente.webp" type="image/webp">
+        <img src="assets/docente.png" width="900" height="1067" alt="Una docente con guardapolvo mirando hacia arriba mientras usa un visor de realidad virtual" class="hero-photo">
       </picture>
     </div>
   </div>
@@ -207,7 +210,6 @@
           <span class="countdown-label">Segundos</span>
         </div>
       </div>
-      <p class="countdown-note">Nos encontramos el 30 de octubre en la Usina del Arte.</p>
     </div>
   </div>
 
@@ -252,7 +254,7 @@
 
         <article class="exp-slide exp-verde">
           <div class="exp-slide-visual">
-            <img src="assets/exp-01-charlas-tec.jpg" alt="Orador presentando sobre inteligencia artificial en el escenario principal, con el público en primer plano" class="exp-slide-photo" loading="lazy">
+            <img src="assets/Charlas-Tec.png" alt="Orador presentando sobre inteligencia artificial en el escenario principal, con el público en primer plano" class="exp-slide-photo" loading="lazy">
           </div>
           <div class="exp-slide-copy">
           
@@ -267,9 +269,71 @@
           </div>
         </article>
 
+        
+          <article class="exp-slide exp-slide-speaker exp-verde">
+          <div class="exp-slide-visual">
+            <img src="assets/Santi-Siri.png" width="667" height="833" alt="Retrato de Santi Siri" class="exp-slide-photo" loading="lazy">
+          </div>
+          <div class="exp-slide-copy">
+            <span class="exp-slide-eyebrow">Charlas TEC</span>
+            <h3 class="exp-slide-title">Santi Siri</h3>
+            <p class="exp-slide-role">Emprendedor tecnológico y especialista en inteligencia artificial</p>
+            </div>
+        </article>
+
+        <article class="exp-slide exp-slide-speaker exp-verde">
+          <div class="exp-slide-visual">
+            <img src="assets/Fabricio-Ballarini.png" width="667" height="833" alt="Retrato de Fabricio Ballarini" class="exp-slide-photo" loading="lazy">
+          </div>
+          <div class="exp-slide-copy">
+            <span class="exp-slide-eyebrow">Charlas TEC</span>
+            <h3 class="exp-slide-title">Fabricio Ballarini</h3>
+            <p class="exp-slide-role">Neurocientífico e investigador</p>
+            
+          </div>
+        </article>
+
+        <article class="exp-slide exp-slide-speaker exp-verde">
+          <div class="exp-slide-visual">
+            <img src="assets/Lucía-Fainboim.png" width="667" height="833" alt="Retrato de Lucía Fainboim" class="exp-slide-photo" loading="lazy">
+          </div>
+          <div class="exp-slide-copy">
+            <span class="exp-slide-eyebrow">Charlas TEC</span>
+            <h3 class="exp-slide-title"> Lucía Fainboim</h3>
+            <p class="exp-slide-role">Especialista en ciudadanía y bienestar digital</p>
+            
+          </div>
+        </article>
+
+        <article class="exp-slide exp-slide-speaker exp-verde">
+          <div class="exp-slide-visual">
+            <img src="assets/Carolina-Duek.png" width="400" height="400" alt="Retrato de Carolina Duek" class="exp-slide-photo exp-photo-closeup" loading="lazy">
+          </div>
+          <div class="exp-slide-copy">
+            <span class="exp-slide-eyebrow">Charlas TEC</span>
+            <h3 class="exp-slide-title">Carolina Duek</h3>
+            <p class="exp-slide-role">Investigadora especializada en infancia, cultura y tecnologías</p>
+           
+          </div>
+        </article>
+
+
+      
+        <article class="exp-slide exp-slide-speaker exp-verde">
+          <div class="exp-slide-visual">
+            <img src="assets/Sebastián-Davidovsky.png" width="900" height="1124" alt="Retrato de Sebastián Davidovsky" class="exp-slide-photo" loading="lazy">
+          </div>
+          <div class="exp-slide-copy">
+            <span class="exp-slide-eyebrow">Charlas TEC</span>
+            <h3 class="exp-slide-title">Sebastián Davidovsky</h3>
+            <p class="exp-slide-role">Periodista especializado en tecnología e inteligencia artificial</p>
+           
+          </div>
+        </article>
+    
         <article class="exp-slide exp-violeta">
           <div class="exp-slide-visual">
-            <img src="assets/exp-02-foro-tec.jpg" alt="Panel de discusión con varias personas conversando alrededor de una mesa" class="exp-slide-photo" loading="lazy">
+            <img src="assets/Foro-TEC.png" alt="Panel de discusión con varias personas conversando alrededor de una mesa" class="exp-slide-photo" loading="lazy">
           </div>
           <div class="exp-slide-copy">
         
@@ -284,9 +348,14 @@
           </div>
         </article>
 
+        <!-- ===== Oradores de Foro TEC: PENDIENTE =====
+             Copiá acá una tarjeta de orador de Charlas TEC por cada orador, cambiando
+             "exp-verde" por "exp-violeta" y "Charlas TEC" por "Foro TEC", y sumá su punto
+             en .exp-dots después del de Foro TEC. -->
+
         <article class="exp-slide exp-turquesa">
           <div class="exp-slide-visual">
-            <img src="assets/exp-03-inteligencia-creativa.jpg" alt="Manos armando un robot con componentes electrónicos en un taller maker" class="exp-slide-photo" loading="lazy">
+            <img src="assets/Inteligencia-Creativa.png" alt="Manos armando un robot con componentes electrónicos en un taller maker" class="exp-slide-photo" loading="lazy">
           </div>
           <div class="exp-slide-copy">
          
@@ -304,10 +373,8 @@
   
 
         <article class="exp-slide exp-rosa">
-          <div class="exp-slide-visual exp-slide-visual-placeholder">
-            <div class="exp-slide-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="4.2" ry="10" transform="rotate(45 12 12)"/></svg>
-            </div>
+         <div class="exp-slide-visual">
+            <img src="assets/creativa.png" alt="Manos armando un robot con componentes electrónicos en un taller maker" class="exp-slide-photo" loading="lazy">
           </div>
           <div class="exp-slide-copy">
          
@@ -331,8 +398,13 @@
       </button>
     </div>
 
-    <div class="exp-dots" role="tablist" aria-label="Ir a experiencia">
+    <div class="exp-dots" role="tablist" aria-label="Ir a experiencia u orador">
       <button class="exp-dot exp-verde is-active" type="button" data-exp-dot aria-label="Ir a Charlas TEC" aria-selected="true"></button>
+      <button class="exp-dot exp-dot-sub exp-verde" type="button" data-exp-dot aria-label="Ir a Santi Siri" aria-selected="false"></button>
+      <button class="exp-dot exp-dot-sub exp-verde" type="button" data-exp-dot aria-label="Ir a Fabricio Ballarini" aria-selected="false"></button>
+      <button class="exp-dot exp-dot-sub exp-verde" type="button" data-exp-dot aria-label="Ir a Lucía Fainboim" aria-selected="false"></button>
+      <button class="exp-dot exp-dot-sub exp-verde" type="button" data-exp-dot aria-label="Ir a Carolina Duek" aria-selected="false"></button>
+      <button class="exp-dot exp-dot-sub exp-verde" type="button" data-exp-dot aria-label="Ir a Sebastián Davidovsky" aria-selected="false"></button>
       <button class="exp-dot exp-violeta" type="button" data-exp-dot aria-label="Ir a Foro TEC" aria-selected="false"></button>
       <button class="exp-dot exp-turquesa" type="button" data-exp-dot aria-label="Ir a Inteligencia Creativa" aria-selected="false"></button>
       <button class="exp-dot exp-rosa" type="button" data-exp-dot aria-label="Ir a Inteligencia Expandida" aria-selected="false"></button>
@@ -408,7 +480,7 @@
       <div class="info-item">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="17" cy="8" r="2.6"/><path d="M16 14.2c2.8.4 5 2.6 5 5.8"/></svg>
         <h4>¿A quién está dirigida?</h4>
-        <p>A docentes, estudiantes y toda la comunidad educativa de la Ciudad.</p>
+        <p>Docentes, equipos directivos y supervisores de todos los niveles y modalidades de la Ciudad, de gestión pública y privada.</p>
       </div>
     </div>
 
@@ -421,17 +493,18 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p>La Tecweek ED es la edición educativa de la Tecweek: Semana de las Tecnologías Emergentes y Creativas, una iniciativa del Gobierno de la Ciudad de Buenos Aires que reúne a los eventos más destacados de la industria tecnológica y creativa del país y del mundo.</p>
+          <p>La TecWeek ED es la edición educativa de Tecweek: Semana de las Tecnologías Emergentes y Creativas, una iniciativa del Gobierno de la Ciudad de Buenos Aires que reúne algunos de los eventos más destacados de la industria tecnológica y creativa.</p>
+          <p>Es una jornada para aprender, experimentar y compartir nuevas formas de enseñar y aprender con tecnologías. En esta edición, la inteligencia artificial será uno de los grandes ejes para pensar la educación que viene.</p>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-trigger" aria-expanded="false">
-          <span>¿Cómo llego a la Usina del Arte?</span>
+          <span>¿Cuándo y dónde se realiza?</span>
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p><em>Contenido pendiente de completar</em></p>
+          <p>La TecWeek ED 2026 se realizará el 30 de octubre, de 8 a 18 h, en la Usina del Arte, Agustín R. Caffarena 1, Ciudad de Buenos Aires.</p>
         </div>
       </div>
 
@@ -441,7 +514,7 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p>A todos los docentes, estudiantes y comunidad educativa de la Ciudad interesados en aprender, pensar y experimentar en torno a temas de educación y tecnologías.</p>
+          <p>Está dirigida a docentes, equipos directivos y supervisores de los distintos niveles y modalidades de la Ciudad de establecimientos de gestión pública y privada.</p>
         </div>
       </div>
 
@@ -451,7 +524,38 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p>Sí. <em>Completar </em></p>
+          <p>Sí. La participación requiere inscripción previa y está sujeta a la disponibilidad de cupos.</p>
+          <p>Una vez realizada la inscripción, recibirás por correo electrónico la información necesaria para organizar tu participación.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿La inscripción garantiza mi lugar?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>La participación está sujeta a la disponibilidad de cupos. Si al momento de inscribirte el turno seleccionado ya alcanzó su capacidad, podrás quedar en lista de espera y te contactaremos si se libera un lugar.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Cómo ingreso al evento?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Antes del evento, las personas con inscripción confirmada recibirán por correo electrónico la información necesaria y un QR para realizar la acreditación e ingreso a TecWeek ED.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿La TecWeek ED dura todo el día?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>TecWeek ED se desarrollará de 8 a 18 h. Al momento de inscribirte podrás seleccionar la modalidad de participación disponible que mejor se adapte a tu jornada.</p>
         </div>
       </div>
 
@@ -461,17 +565,28 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p>Sí. Consultá la <a href="AGENDA_PDF_PENDIENTE.pdf" target="_blank" rel="noopener">agenda aquí</a>.</p>
+          <p>Sí. TecWeek ED contará con una agenda de actividades simultáneas a lo largo de toda la jornada: charlas, paneles, experiencias, talleres y espacios para explorar y aprender.</p>
+          <p>Antes del evento compartiremos la <a href="AGENDA_PDF_PENDIENTE.pdf" target="_blank" rel="noopener">agenda completa</a> para que puedas organizar tu recorrido.</p>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-trigger" aria-expanded="false">
-          <span>¿Hay actividades para docentes de todos los niveles educativos?</span>
+          <span>¿Tengo que inscribirme por separado en cada actividad?</span>
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p>Sí. El evento incluye propuestas relevantes para docentes de todos los niveles, y también otras diferenciadas para Nivel Inicial, Primario y Secundario.</p>
+          <p>La inscripción general permite el ingreso a TecWeek ED. Algunas propuestas podrán tener cupo limitado o una modalidad específica de participación, que será informada en la agenda.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Necesito conocimientos previos sobre inteligencia artificial o tecnología?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>No. Las propuestas están pensadas para que puedas participar con distintos niveles de experiencia y conocimiento. La idea es explorar, aprender y llevarte nuevas preguntas, herramientas e ideas.</p>
         </div>
       </div>
 
@@ -481,17 +596,17 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p>Sí. Bienestar TEC ofrece un espacio para hacer una pausa, descansar y encontrarse con colegas.</p>
+          <p>Sí. La TecWeek contará con Bienestar TEC, un espacio pensado para hacer una pausa, descansar y encontrarse con colegas durante la jornada.</p>
         </div>
       </div>
 
       <div class="accordion-item">
         <button class="accordion-trigger" aria-expanded="false">
-          <span>¿Se sirven comidas?</span>
+          <span>¿La participación es gratuita?</span>
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p><em>Contenido pendiente de completar.</em></p>
+          <p>Sí. La participación en TecWeek ED es gratuita, con inscripción previa y cupos limitados.</p>
         </div>
       </div>
 
@@ -501,7 +616,47 @@
           <span class="accordion-icon">+</span>
         </button>
         <div class="accordion-panel">
-          <p><em>Contenido pendiente de completar.</em></p>
+          <p>Sí, para los docentes convocados por el equipo directivo de la institución en la que se desempeñan. La justificación comprende el o los turnos por los que hayan sido convocados, correspondientes a cargos en establecimientos de gestión estatal.</p>
+          <p>Luego del evento, recibirán por correo electrónico una constancia de participación con los turnos acreditados, que deberán presentar en su establecimiento.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Cómo llego a la Usina del Arte?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>En transporte público:</p>
+          <p><strong>Paradas a menos de 2 cuadras</strong><br>
+          Av. Pedro de Mendoza y Caffarena / Usina del Arte: líneas 8, 20, 130 y 168.<br>
+          Caboto y Benito Pérez Galdós / Villafañe: líneas 25, 29 y 53.<br>
+          Av. Pedro de Mendoza y 20 de Septiembre / Blanes: líneas 20, 130 y 168.</p>
+          <p><strong>Paradas a 3 o 4 cuadras</strong><br>
+          Av. Almirante Brown y Benito Pérez Galdós / Villafañe: líneas 29, 33, 53, 64, 86, 93, 129, 152 y 195.<br>
+          Av. Regimiento de Patricios y Villafañe / Arandía: líneas 24, 39, 70, 93 y 102.</p>
+          <p><strong>E-Bus</strong><br>
+          A partir de las 16 h, también podés utilizar el E-Bus, el servicio de colectivos eléctricos de la Ciudad.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Hay micros disponibles?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Habrá micros gratuitos disponibles únicamente para el regreso, con salida desde la Usina del Arte a las 18 h hacia distintos puntos de la Ciudad. No habrá servicio de traslado para la llegada al evento.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>¿Dónde puedo consultar si tengo alguna duda?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Podés escribirnos a <a href="mailto:tecweek.ed@bue.edu.ar">tecweek.ed@bue.edu.ar</a>.</p>
         </div>
       </div>
     </div>
@@ -510,8 +665,41 @@
 
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p class="footer-note"><em>.</em></p>
+  <div class="container footer-grid">
+
+    <div class="footer-col footer-col-brand">
+      <div class="footer-logos">
+      
+     
+        <img src="assets/ministerio-ba.svg" alt="Ministerio de Educación · Gobierno de la Ciudad de Buenos Aires" class="footer-logo-ministerio">
+      </div>
+      <p class="footer-tagline">Aprendé lo que se viene.</p>
+      <p class="footer-address">30 de Octubre de 2026 en la Usina del Arte, Avenida Don Pedro de Mendoza 501, La Boca, Ciudad de Buenos Aires, Argentina.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-heading">Explorar Tecweek ED</h3>
+      <ul class="footer-links">
+        <li><a href="#top">Inicio</a></li>
+        <li><a href="https://script.google.com/a/macros/bue.edu.ar/s/AKfycbxxVTCqKhXD4bd1T97dSXKL-B5fesiy_dN_dC29YSe3BNbBQRSwX3jnNb3w070K2A/exec" target="_blank" rel="noopener">Inscribirme</a></li>
+        <!-- Agenda: deshabilitado hasta tener el PDF. Para reactivar: sacar "is-disabled" y el <span class="badge-soon">,
+             y volver a poner target="_blank" rel="noopener" href="AGENDA_PDF_PENDIENTE.pdf" (o el link real). -->
+        <li><a href="#" class="is-disabled" aria-disabled="true" tabindex="-1">Agenda <span class="badge-soon">Próximamente</span></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-heading">Seguinos en Redes Sociales</h3>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/educacionba" class="footer-social-link" target="_blank" rel="noopener" aria-label="Seguinos en Instagram">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@EducacionDigitalBA" class="footer-social-link" target="_blank" rel="noopener" aria-label="Mirá nuestros videos en YouTube">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1.5" y="4" width="21" height="16" rx="5"/><path d="M10 8.7v6.6l6-3.3-6-3.3z" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 </footer>
 
