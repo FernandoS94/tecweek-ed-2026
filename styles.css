@@ -1436,7 +1436,9 @@ padding-top: 140px}
   /* En mobile se prioriza que la tira entre completa y se achique con la pantalla,
      en vez de forzar el ancho mínimo de escritorio (480px) y obligar a deslizar. Con
      esto ya no hace falta el degradado de "seguí deslizando" del borde derecho. */
-  .ejes-image { min-width: 0; }
+  /* 85% en vez de 100%: deja un margen a los costados para que no se vea pegada al
+     borde de la pantalla ni tan "grande" en relación al resto del contenido mobile. */
+  .ejes-image { min-width: 0; width: 85%; margin: 0 auto; }
   /* Logo del header un poco más grande en mobile (antes heredaba el tamaño de escritorio,
      60px, hasta los 420px donde caía abrupto a 20px). */
   .logo-img { height: 42px; }
@@ -1498,6 +1500,8 @@ padding-top: 140px}
 /* Ajustes finos para celulares chicos (320–420px) */
 @media (max-width: 420px) {
   .container { padding: 0 16px; }
+  /* Celulares chicos: un poco más chica todavía que el 85% base de 600px. */
+  .ejes-image { width: 75%; }
   .header-inner { gap: 10px; padding-top: 14px; padding-bottom: 14px; }
   .logo-img { height: 30px; }
   /* A 320px el botón "Inscribirme" del header no entraba (se pasaba 32px del borde,
