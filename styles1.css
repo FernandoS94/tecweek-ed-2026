@@ -1071,19 +1071,22 @@ padding-top: 140px}
    se aplica parejo en las 4 esquinas aunque "object-fit: contain" deje una franja del
    fondo visible arriba/abajo o a los costados — antes el radius vivía solo en la imagen y
    alguna esquina quedaba recta según cómo cayera el letterboxing. */
-.agora-media { flex: 1 1 420px; max-width: 480px; border-radius: 36px; overflow: hidden; }
-/* aspect-ratio fijo + object-fit:cover: así ambas fotos (Ágora IA y Bosque de las
-   Decisiones) se ven exactamente del mismo tamaño en pantalla, sin importar las
-   proporciones reales de cada imagen original. */
-/* "contain" en vez de "cover": la proporción real de esta foto no coincide con el
-   recuadro 4:3 (a diferencia de la del Bosque, que sí calzaba), así que con "cover"
-   siempre se termina recortando algo sin importar el object-position. Con "contain" se
-   ve completa, sin cortar nada; si sobra espacio arriba/abajo o a los costados, se ve
-   el fondo de la sección detrás. */
-.agora-img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block; border-radius: 36px; }
+.agora-media { flex: 1 1 420px; max-width: 480px; border-radius: 24px; overflow: hidden; isolation: isolate; transform: translateZ(0); }
+/* aspect-ratio fijo + object-fit:cover: así las tres fotos (Streaming, Ágora IA y
+   Bosque de las Decisiones) se ven exactamente del mismo tamaño en pantalla, sin
+   importar las proporciones reales de cada imagen original. */
+/* "cover" (no "contain"): con "contain", si la foto no es exactamente cuadrada, la
+   imagen queda más chica que el recuadro y sus propias esquinas (rectas) no llegan a
+   tocar el borde redondeado del contenedor — se ve como si el radio no estuviera
+   aplicado. "cover" llena el recuadro completo, recortando algo de la imagen según
+   object-position, pero garantiza que las 4 esquinas redondeadas se vean siempre. */
+.agora-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 25%; display: block; border-radius: 24px; }
 
-.bosque-media { flex: 1 1 420px; max-width: 480px; }
-.bosque-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 50%; display: block; border-radius: var(--radius); }
+/* Mismo radio y mismo overflow:hidden en el contenedor que .agora-media (Streaming y
+   Ágora IA), para que las tres fotos de esta fila de secciones tengan el borde redondeado
+   idéntico. */
+.bosque-media { flex: 1 1 420px; max-width: 480px; border-radius: 24px; overflow: hidden; isolation: isolate; transform: translateZ(0); }
+.bosque-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 25%; display: block; border-radius: 24px; }
 
 .franja-tags { display: flex; gap: 10px; flex-wrap: wrap; }
 .tag {
