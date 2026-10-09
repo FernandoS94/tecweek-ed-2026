@@ -1433,13 +1433,10 @@ padding-top: 140px}
   /* Mismo motivo que el padding-bottom base del .hero: reserva espacio para la mitad
      superior de la píldora, que acá es más chica (menos padding, números más chicos). */
   .hero { padding-top: 50px; padding-bottom: 46px; }
-  /* Acá la tira de píldoras ya no entra completa (min-width:480px) y hay que deslizarla.
-     El desvanecido en el borde derecho es la única pista visual de que sigue, si no, el
-     corte parece contenido roto. */
-  .ejes-image-wrap {
-    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 90%, transparent 100%);
-            mask-image: linear-gradient(90deg, #000 0%, #000 90%, transparent 100%);
-  }
+  /* En mobile se prioriza que la tira entre completa y se achique con la pantalla,
+     en vez de forzar el ancho mínimo de escritorio (480px) y obligar a deslizar. Con
+     esto ya no hace falta el degradado de "seguí deslizando" del borde derecho. */
+  .ejes-image { min-width: 0; }
   /* Logo del header un poco más grande en mobile (antes heredaba el tamaño de escritorio,
      60px, hasta los 420px donde caía abrupto a 20px). */
   .logo-img { height: 42px; }
