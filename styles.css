@@ -1117,8 +1117,8 @@ padding-top: 140px}
 }
 
 .info-item .icon { color: var(--violeta); margin-bottom: 12px; }
-.info-item h4 { font-size: 1.02rem; margin-bottom: 6px; }
-.info-item p { color: var(--texto-suave); font-size: 0.95rem; }
+.info-item h4 { font-size: 1.25rem; margin-bottom: 8px; }
+.info-item p { color: var(--texto-suave); font-size: 1.1rem; }
 
 .faq-title { font-size: clamp(1.7rem, 3vw, 2.2rem); margin-bottom: 30px; }
 
