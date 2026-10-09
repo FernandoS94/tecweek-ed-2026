@@ -128,7 +128,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .bg-white { background-color: var(--color-white); }
 .bg-light { background-color: var(--color-light); }
 .border-bottom { border-bottom: 1px solid #E5E7EB; }
-.border-top { border-top: 1px solid #E5E7EB; }
+.border-top { border-bottom: 1px solid #E5E7EB; }
 .pb-section { padding-bottom: 80px; }
 
 /* ---------- Botones ---------- */
@@ -330,7 +330,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero {
   position: relative;
   color: #fff;
-  padding: 70px 0 0;
+  /* El padding-bottom reserva el espacio que antes ocupaba la píldora de cuenta regresiva
+     cuando vivía en el flujo normal (ver .countdown-wrap, ahora position:absolute). Sin
+     esto, el fondo morado terminaría justo donde termina el texto/la foto, y la píldora
+     (centrada exactamente sobre ese borde) quedaría casi entera tapando el contenido en
+     vez de quedar mitad adentro / mitad afuera del hero. */
+  padding: 70px 0 80px;
 
   /* Fondo "Freedom Gradient" de la guía de marca (paleta: #5C0055, #EE9CCA, #F0C79D, #62CFF6, #2763A5).
      Es una imagen generada con los colores reales de la guía, pero con el cian comprimido contra
@@ -377,33 +382,33 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
   height: auto;
   width: clamp(260px, 36vw, 480px);
-  margin: 0 0 22px;
+  margin: 0 0 8px;
 }
 
 .hero-title {
   font-family: var(--font-body);
   font-weight: 400;
   text-transform: none;
-  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
   color: #fff;
   margin-bottom: 18px;
   letter-spacing: -0.01em;
 }
 
 .hero-subtitle {
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   color: white;
   max-width: 480px;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
-.hero-subtitle-sub { margin-bottom: 30px; }
+.hero-subtitle-sub { margin-bottom: 18px; }
 
 .hero-actions {
   display: flex;
   align-items: stretch;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 /* Los dos botones, lado a lado, se reparten el 100% del ancho de la columna de texto
    (antes quedaba un hueco grande a la derecha, herencia de cuando estaba "Preguntas
@@ -425,26 +430,29 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-actions .btn-text { color: rgba(255,255,255,.75); }
 
 .hero-meta {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 556px;
+  gap: 16px;
+  font-size: 1.3rem;
 }
 /* Siempre en su propia línea: en el rango ~820-900px alcanzaba a entrar en el mismo
    renglón que fecha/ubicación, y quedaba inconsistente respecto al resto de los anchos. */
 .meta-item-break { flex-basis: 100%; }
 .meta-item {
   display: inline-flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 10px;
   color: #fff;
   font-weight: 600;
   line-height: 1.2;
 }
-.meta-item small { display: block; 
-  font-size: 0.80rem; 
-  line-height: 1.2; 
-  color: rgba(255,255,255,.7); 
+.meta-item small { display: block;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: rgba(255,255,255,.7);
   font-weight: 500; }
 /* Excepción: acá la "línea chica" es continuación de la misma frase, no un dato secundario
    (a diferencia de "8 a 18 h" o "La Boca, CABA"), así que va con el mismo estilo que la principal. */
@@ -516,12 +524,12 @@ ul { margin: 0; padding: 0; list-style: none; }
    "cover" para que llene el cuadro por completo. */
 .hero-media {
   position: absolute;
-  right: max(24px, calc((100vw - 1160px) / 2 + 24px));
+  right: calc(max(24px, calc((100vw - 1160px) / 2 + 24px)) - 40px);
   bottom: -1px;
   /* El ALTO manda (vw como unidad de escala, no vw de ancho de la caja): así nunca se pasa
      de la altura real del hero, que la definen el logo + los textos, no el ancho de pantalla.
      El ancho sale solo de acá vía aspect-ratio, manteniendo la proporción 670×794. */
-  height: clamp(360px, 34vw, 560px);
+   height: clamp(420px, 40vw, 650px);
   aspect-ratio: 670 / 794;
   pointer-events: none;
   filter: drop-shadow(0 18px 36px rgba(20, 0, 50, .35));
@@ -583,38 +591,52 @@ ul { margin: 0; padding: 0; list-style: none; }
   text-shadow: 0 2px 10px rgba(0,0,0,.35);
 }
 
-/* Cuenta regresiva — referencia: fondo sólido oscuro en vez del degradé de marca */
+/* Envoltorio que posiciona la píldora exactamente sobre el borde inferior del hero:
+   position:absolute + bottom:0 la ancla al borde, y translateY(50%) la baja la mitad de
+   SU PROPIA altura (la que sea, calculada por el navegador) — así queda siempre partida
+   50/50 entre la sección morada y la blanca, sin depender de un valor fijo adivinado. */
+.countdown-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(50%);
+  z-index: 5;
+}
+
+/* Cuenta regresiva — referencia: píldora horizontal con degradé de marca, "Faltan" a la
+   izquierda separado por una línea vertical, números y etiquetas en fila a la derecha. */
 .countdown {
-  position: relative;
-  z-index: 2;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
-  width: min(560px, 90%);
-  padding: 30px 20px 26px;
-  border-radius: 18px;
-  background: var(--oscuro);
-  /* Centrado (en vez de pegado a la izquierda) y sobresaliendo del borde inferior del
-     hero hacia la sección blanca de abajo, como en la referencia. */
-  margin: 0 auto -80px;
+  gap: 34px;
+  width: min(900px, 94%);
+  padding: 20px 46px;
+  border-radius: 25px;
+  justify-content: center;
+  background: linear-gradient(90deg, #1F2259 0%, #5C0055 48%, #E3A988 100%);
+  margin: 0 auto;
 }
 
 .countdown-kicker {
   margin: 0;
-  font-size: 1.05rem;
-  font-weight: 400;
-  letter-spacing: normal;
-  text-transform: none;
+  padding-right: 34px;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
   color: #fff;
+  white-space: nowrap;
 }
 
 .countdown-grid {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 26px;
+  flex-wrap: nowrap;
 }
 
 .countdown-item {
@@ -622,14 +644,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  min-width: 64px;
+  min-width: 58px;
 }
 
 .countdown-number {
   display: inline-block;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 2.1rem;
+  font-size: 3.0rem;
   color: #fff;
   font-variant-numeric: tabular-nums;
   line-height: 1;
@@ -656,7 +678,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .countdown-sep {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: rgba(255,255,255,.55);
 }
 
@@ -703,7 +725,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .section-intro {
   color: var(--texto-suave);
-  max-width: 800px;
+  max-width: 950px;
   margin-top: 14px;
   font-size: 1.05rem;
 }
@@ -722,8 +744,8 @@ padding-top: 140px}
   gap: 36px;
 }
 
-.ejes-text h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin: 0 auto 16px; max-width: 720px; }
-.ejes-text p { color: var(--texto-suave); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+.ejes-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.5rem); margin: 0 auto 16px; }
+.ejes-text p { color: var(--texto-suave); font-size: 1.05rem; max-width: 950px; margin: 0; text-align: left; }
 
 /* La tira de píldoras es muy ancha y "chata" (ratio ~8.5:1): en pantallas angostas se
    volvería ilegible si se achica sin límite, así que se le pone un ancho mínimo y, si no
@@ -745,7 +767,7 @@ padding-top: 140px}
 
 /* ---------- Experiencias / tarjetas ---------- */
 .experiencias { background: #F3F1EA; }
-.experiencias h2 { font-size: clamp(1.9rem, 3.5vw, 2.5rem); margin-bottom: 4px; }
+.experiencias h2 { font-size: clamp(1.9rem, 3.5vw, 2.5rem); margin-bottom: 4px; text-align: center; }
 
 /* ---------- Experiencias — carrusel (slide centrado con vista previa de los vecinos) ---------- */
 .exp-carousel {
@@ -1059,6 +1081,28 @@ padding-top: 140px}
   font-size: 0.88rem;
 }
 
+/* CTA dentro de una franja (ej. "Ver transmisión en vivo"): separación respecto al
+   párrafo anterior. */
+.franja-text .btn { margin-top: 8px; }
+
+/* Placeholder temporal para una franja sin foto todavía (ej. Streaming, hasta tener la
+   imagen real). Mismas proporciones que .agora-img/.bosque-img para que el layout no
+   salte cuando se reemplace por la foto definitiva. */
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1.5px dashed var(--borde);
+  background: var(--claro);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px;
+}
+
 
 /* ---------- Info + FAQ ---------- */
 .info-faq { background: var(--claro); border-top: 1px solid var(--borde); }
@@ -1347,8 +1391,10 @@ padding-top: 140px}
   .hero-inner { grid-template-columns: 1fr; }
   .hero-copy { max-width: none; }
   /* El solapamiento hacia la sección de abajo se achica en mobile: con -80px tapaba
-     el título "Un evento único..." de la siguiente sección. */
-  .countdown { width: 100%; margin: 0 0 -24px; }
+     el título "Un evento único..." de la siguiente sección. La píldora se estira
+     a todo el ancho pero sigue redondeada (border-radius en % para que no se vea
+     como un simple rectángulo con puntas). */
+  .countdown { width: 100%; max-width: 100%; border-radius: 28px; }
   /* Referencia mobile: sin la foto — va directo de los chips al logo grande. */
   .hero-media { display: none; }
   .hero-infobar { grid-template-columns: 1fr 1fr; gap: 22px 0; }
@@ -1368,7 +1414,9 @@ padding-top: 140px}
 
 @media (max-width: 600px) {
   body { background-attachment: scroll; }
-  .hero { padding-top: 50px; }
+  /* Mismo motivo que el padding-bottom base del .hero: reserva espacio para la mitad
+     superior de la píldora, que acá es más chica (menos padding, números más chicos). */
+  .hero { padding-top: 50px; padding-bottom: 46px; }
   /* Acá la tira de píldoras ya no entra completa (min-width:480px) y hay que deslizarla.
      El desvanecido en el borde derecho es la única pista visual de que sigue, si no, el
      corte parece contenido roto. */
@@ -1383,15 +1431,17 @@ padding-top: 140px}
      — así el texto largo de la dirección envuelve en su propia columna angosta en vez
      de necesitar todo el ancho disponible para cada ítem. */
   .hero-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .meta-item { align-items: flex-start; }
+  .meta-item { align-items: flex-start; text-align: left; }
   .pit-card { flex-direction: column; align-items: flex-start; padding: 0; text-align: left; gap: 28px; }
   .pit-stat-number { font-size: 2.6rem; }
   .pit-media { align-self: center; }
   .pit-photo { width: 160px; height: 160px; }
-  .countdown { gap: 10px; padding: 20px 14px; }
-  .countdown-grid { gap: 10px; }
-  .countdown-number { font-size: 1.5rem; }
-  .countdown-sep { font-size: 1.3rem; }
+  .countdown { gap: 12px; padding: 12px 16px; }
+  .countdown-kicker { padding-right: 12px; font-size: 0.8rem; }
+  .countdown-grid { gap: 9px; }
+  .countdown-item { min-width: 38px; }
+  .countdown-number { font-size: 1.35rem; }
+  .countdown-sep { font-size: 1.1rem; }
   .countdown-note { font-size: 0.82rem; }
   .hero-dog { width: 120px; }
   .hero-words-pairs { padding: 18px 14px; gap: 8px; }
@@ -1436,6 +1486,7 @@ padding-top: 140px}
      oculto por el overflow-x:hidden del body pero cortado visualmente igual). */
   .header-actions { gap: 10px; }
   .header-actions .btn-primary { padding: 9px 14px; font-size: 0.82rem; }
+  .hero { padding-bottom: 32px; }
   .hero-title { font-size: clamp(1.7rem, 7vw, 2.1rem); }
   .hero-logo { height: 34px; margin-top: 18px; }
   .hero-subtitle { font-size: 0.98rem; }
@@ -1443,14 +1494,14 @@ padding-top: 140px}
   .section { padding: 56px 0; }
   .chip-nav { gap: 8px; }
   .nav-chip { padding: 6px 12px; font-size: 0.78rem; }
-  .countdown { gap: 8px; padding: 16px 8px; }
+  .countdown { gap: 8px; padding: 10px 12px; }
   /* gap más chico + label con menos letter-spacing: a 320px, "SEGUNDOS" + los separadores
      no entraban en una sola línea con el gap/padding original (se cortaban 18px) */
+  .countdown-kicker { padding-right: 9px; font-size: 0.68rem; }
   .countdown-grid { gap: 5px; }
-  .countdown-item { min-width: 48px; }
-  .countdown-number { font-size: 1.2rem; }
-  .countdown-label { font-size: 0.62rem; letter-spacing: .02em; }
-  .countdown-kicker { font-size: 0.72rem; }
+  .countdown-item { min-width: 34px; }
+  .countdown-number { font-size: 1.15rem; }
+  .countdown-label { font-size: 0.56rem; letter-spacing: .02em; }
   .countdown-note { font-size: 0.78rem; }
   .card { padding: 24px 20px 26px; }
   .exp-slide-copy { padding: 16px 18px 22px; }
