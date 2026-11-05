@@ -386,14 +386,13 @@ document.querySelectorAll('.recurso-card, .recurso-card-multi').forEach((card) =
   });
 });
 
-// ===== Filtros de recursos.html: nombre del taller + tallerista + sala =====
-// Se combinan con AND: una tarjeta queda visible solo si cumple todas las condiciones activas.
+// ===== Filtros de recursos.html: nombre del taller + tallerista =====
+// Se combinan con AND: una tarjeta queda visible solo si cumple las dos condiciones.
 (() => {
   const searchInput = document.getElementById('recursosBusqueda');
   const select = document.getElementById('recursosFiltro');
-  const salaSelect = document.getElementById('recursosSala');
   const grid = document.getElementById('recursosGrid');
-  if ((!searchInput && !select && !salaSelect) || !grid) return;
+  if ((!searchInput && !select) || !grid) return;
 
   const cards = Array.from(grid.querySelectorAll('.recurso-card'));
   const countEl = document.getElementById('recursosCount');
@@ -417,17 +416,15 @@ document.querySelectorAll('.recurso-card, .recurso-card-multi').forEach((card) =
 
   function applyFilter() {
     const presenterValue = select ? select.value : 'todos';
-    const salaValue = salaSelect ? salaSelect.value : 'todos';
     const searchValue = normalize(searchInput ? searchInput.value : '');
-    const noFiltersActive = presenterValue === 'todos' && salaValue === 'todos' && !searchValue;
+    const noFiltersActive = presenterValue === 'todos' && !searchValue;
     let visible = 0;
 
     cards.forEach((card) => {
       const presenters = (card.dataset.presenters || '').split('|');
       const matchesPresenter = presenterValue === 'todos' || presenters.includes(presenterValue);
-      const matchesSala = salaValue === 'todos' || card.dataset.sala === salaValue;
       const matchesSearch = !searchValue || card.dataset.tituloNormalizado.includes(searchValue);
-      const matches = matchesPresenter && matchesSala && matchesSearch;
+      const matches = matchesPresenter && matchesSearch;
       card.hidden = !matches;
       if (matches) visible += 1;
     });
@@ -442,7 +439,6 @@ document.querySelectorAll('.recurso-card, .recurso-card-multi').forEach((card) =
   }
 
   if (select) select.addEventListener('change', applyFilter);
-  if (salaSelect) salaSelect.addEventListener('change', applyFilter);
   if (searchInput) searchInput.addEventListener('input', applyFilter);
   applyFilter();
 })();

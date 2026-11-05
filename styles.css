@@ -1682,6 +1682,24 @@ a:focus-visible, button:focus-visible {
    la tarjeta seguiría viéndose: el "display:flex" de arriba tiene la misma prioridad que
    la regla [hidden] del navegador y, al venir después en la hoja de estilos, gana. */
 .recurso-card[hidden] { display: none; }
+/* Miniatura de portada: ocupa el ancho de la tarjeta, arriba de todo, y lleva al mismo
+   material que el botón (por eso se oculta a lectores de pantalla y del tabulador). */
+.recurso-thumb {
+  display: block;
+  margin: -26px -24px 6px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--oscuro);
+}
+.recurso-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+.recurso-thumb:hover img { transform: scale(1.03); }
 .recurso-card h3 { font-size: 1.1rem; line-height: 1.3; }
 .recurso-meta {
   font-size: 0.8rem;
