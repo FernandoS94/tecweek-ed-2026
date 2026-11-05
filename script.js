@@ -365,3 +365,84 @@ if (navToggle && mainNav) {
     });
   });
 }
+
+// ===== "Ver más" en las descripciones de recursos.html =====
+// Arranca recortada a 3 líneas (ver .is-clamped en styles.css). Si el texto ya entraba
+// completo en esas 3 líneas, el botón se saca solo (no hace falta "Ver más" para nada).
+document.querySelectorAll('.recurso-card, .recurso-card-multi').forEach((card) => {
+  const desc = card.querySelector('.recurso-desc');
+  const btn = card.querySelector('.recurso-ver-mas');
+  if (!desc || !btn) return;
+
+  if (desc.scrollHeight <= desc.clientHeight + 2) {
+    btn.remove();
+    return;
+  }
+
+  btn.addEventListener('click', () => {
+    const isClamped = desc.classList.toggle('is-clamped');
+    btn.textContent = isClamped ? 'Ver más' : 'Ver menos';
+    btn.setAttribute('aria-expanded', String(!isClamped));
+  });
+});
+
+// ===== Filtros de recursos.html: nombre del taller + tallerista + sala =====
+// Se combinan con AND: una tarjeta queda visible solo si cumple todas las condiciones activas.
+(() => {
+  const searchInput = document.getElementById('recursosBusqueda');
+  const select = document.getElementById('recursosFiltro');
+  const salaSelect = document.getElementById('recursosSala');
+  const grid = document.getElementById('recursosGrid');
+  if ((!searchInput && !select && !salaSelect) || !grid) return;
+
+  const cards = Array.from(grid.querySelectorAll('.recurso-card'));
+  const countEl = document.getElementById('recursosCount');
+  const emptyEl = document.getElementById('recursosEmpty');
+  const total = cards.length;
+
+  // Saca tildes para que "ninas" encuentre "niñas", etc.
+  function normalize(str) {
+    return (str || '')
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .trim();
+  }
+
+  // Guarda el título normalizado una sola vez (no cambia entre filtrados)
+  cards.forEach((card) => {
+    const h3 = card.querySelector('h3');
+    card.dataset.tituloNormalizado = normalize(h3 ? h3.textContent : '');
+  });
+
+  function applyFilter() {
+    const presenterValue = select ? select.value : 'todos';
+    const salaValue = salaSelect ? salaSelect.value : 'todos';
+    const searchValue = normalize(searchInput ? searchInput.value : '');
+    const noFiltersActive = presenterValue === 'todos' && salaValue === 'todos' && !searchValue;
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const presenters = (card.dataset.presenters || '').split('|');
+      const matchesPresenter = presenterValue === 'todos' || presenters.includes(presenterValue);
+      const matchesSala = salaValue === 'todos' || card.dataset.sala === salaValue;
+      const matchesSearch = !searchValue || card.dataset.tituloNormalizado.includes(searchValue);
+      const matches = matchesPresenter && matchesSala && matchesSearch;
+      card.hidden = !matches;
+      if (matches) visible += 1;
+    });
+
+    if (countEl) {
+      countEl.textContent = noFiltersActive
+        ? ''
+        : `Mostrando ${visible} de ${total} talleres.`;
+    }
+
+    if (emptyEl) emptyEl.hidden = visible > 0;
+  }
+
+  if (select) select.addEventListener('change', applyFilter);
+  if (salaSelect) salaSelect.addEventListener('change', applyFilter);
+  if (searchInput) searchInput.addEventListener('input', applyFilter);
+  applyFilter();
+})();

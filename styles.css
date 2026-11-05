@@ -1567,3 +1567,249 @@ a:focus-visible, button:focus-visible {
 .info-item .map-link { color: var(--violeta); }
 .footer-address .map-link { color: rgba(255,255,255,.85); transition: color .15s ease; }
 .footer-address .map-link:hover { color: #fff; }
+
+
+/* =========================================================
+   Página de Recursos (recursos.html)
+   Oculta de la navegación del home: no tiene sección propia en index.html,
+   se accede solo desde el botón "Recursos" del header (ver index.html).
+========================================================= */
+/* El body de todo el sitio tiene el fondo "mesh gradient" violeta/celeste del hero
+   (ver regla "body" más arriba). En esta página el contenido es texto y tarjetas, no
+   un hero, así que ese degradé se veía de fondo entre secciones y bajaba el contraste.
+   Se tapa con un gris sólido parejo en toda la página. */
+.recursos-page {
+  background-color: #EDEBE4;
+  background-image: none;
+}
+
+.recursos-hero {
+  background: var(--claro);
+  padding: 64px 0 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--borde);
+}
+.recursos-hero h1 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 14px;
+}
+.recursos-hero p {
+  color: var(--texto-suave);
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+/* Buscador por nombre del taller + dropdown por tallerista, lado a lado en desktop */
+.recursos-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 18px;
+  margin-top: 28px;
+}
+.recursos-filter-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.recursos-filter-field label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+.recursos-filter-field select,
+.recursos-filter-field input[type="search"] {
+  min-width: 260px;
+  max-width: 100%;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--borde);
+  background: #fff;
+  color: var(--texto);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.recursos-filter-field select { cursor: pointer; }
+#recursosSala { min-width: 200px; }
+.recursos-filter-field select:focus-visible,
+.recursos-filter-field input[type="search"]:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .recursos-filter { flex-direction: column; align-items: stretch; }
+  .recursos-filter-field { align-items: stretch; }
+  .recursos-filter-field select,
+  .recursos-filter-field input[type="search"] { min-width: 0; }
+}
+
+.recursos-list { padding: 56px 0 80px; background: #fff; }
+
+.recursos-count {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.recursos-empty {
+  color: var(--texto-suave);
+  text-align: center;
+  padding: 40px 0;
+  font-size: 1rem;
+}
+
+.recursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.recurso-card {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* El filtro de disertante oculta tarjetas con el atributo "hidden" (script.js). Sin esto,
+   la tarjeta seguiría viéndose: el "display:flex" de arriba tiene la misma prioridad que
+   la regla [hidden] del navegador y, al venir después en la hoja de estilos, gana. */
+.recurso-card[hidden] { display: none; }
+.recurso-card h3 { font-size: 1.1rem; line-height: 1.3; }
+.recurso-meta {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  margin: -2px 0 0;
+}
+.recurso-tallerista {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--violeta);
+}
+.recurso-card .recurso-desc {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  flex: 1;
+}
+/* Recorta a 3 líneas hasta que se abra con el botón "Ver más" (script.js agrega/saca
+   esta clase, y la saca de movida si el texto ya entraba completo en 3 líneas). */
+.recurso-card .recurso-desc.is-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.recurso-ver-mas {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: -6px;
+  color: var(--violeta);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.recurso-ver-mas:hover { opacity: .75; }
+
+.recurso-card .btn { align-self: flex-start; margin-top: 4px; }
+
+/* Colores de las tarjetas (paleta oficial del index). Cada tarjeta lleva una clase
+   recurso-card--azul | --violeta | --celeste | --durazno | --rosa. Para cambiar el color de
+   una tarjeta alcanza con cambiar esa clase. Azul y violeta usan texto blanco; el resto, oscuro. */
+.recurso-card--azul,
+.recurso-card--violeta,
+.recurso-card--celeste,
+.recurso-card--durazno,
+.recurso-card--rosa {
+  --m-bg: var(--verde);
+  --m-fg: #fff;
+  --m-soft: rgba(255,255,255,.88);
+  --m-accent: #fff;
+  --m-link: rgba(255,255,255,.14);
+  --m-link-hover: rgba(255,255,255,.26);
+  background: var(--m-bg);
+  border-color: transparent;
+  color: var(--m-fg);
+}
+.recurso-card--violeta { --m-bg: var(--violeta); }
+.recurso-card--celeste,
+.recurso-card--durazno,
+.recurso-card--rosa {
+  --m-fg: var(--texto);
+  --m-soft: var(--texto);
+  --m-accent: var(--violeta);
+  --m-link: rgba(255,255,255,.6);
+  --m-link-hover: rgba(255,255,255,.9);
+}
+.recurso-card--celeste { --m-bg: #62CFF6; }
+.recurso-card--durazno { --m-bg: #F0C79D; }
+.recurso-card--rosa { --m-bg: #EE9CCA; }
+
+.recurso-card--azul h3, .recurso-card--violeta h3, .recurso-card--celeste h3,
+.recurso-card--durazno h3, .recurso-card--rosa h3,
+.recurso-card--azul .recurso-meta, .recurso-card--violeta .recurso-meta, .recurso-card--celeste .recurso-meta,
+.recurso-card--durazno .recurso-meta, .recurso-card--rosa .recurso-meta { color: var(--m-fg); }
+.recurso-card--azul .recurso-tallerista, .recurso-card--violeta .recurso-tallerista,
+.recurso-card--celeste .recurso-tallerista, .recurso-card--durazno .recurso-tallerista,
+.recurso-card--rosa .recurso-tallerista,
+.recurso-card--azul .recurso-ver-mas, .recurso-card--violeta .recurso-ver-mas,
+.recurso-card--celeste .recurso-ver-mas, .recurso-card--durazno .recurso-ver-mas,
+.recurso-card--rosa .recurso-ver-mas { color: var(--m-accent); }
+.recurso-card--azul .recurso-desc, .recurso-card--violeta .recurso-desc, .recurso-card--celeste .recurso-desc,
+.recurso-card--durazno .recurso-desc, .recurso-card--rosa .recurso-desc { color: var(--m-soft); }
+.recurso-card--azul .btn-outline, .recurso-card--violeta .btn-outline, .recurso-card--celeste .btn-outline,
+.recurso-card--durazno .btn-outline, .recurso-card--rosa .btn-outline {
+  border-color: var(--m-fg);
+  color: var(--m-fg);
+}
+.recurso-card--azul .btn-outline:hover, .recurso-card--violeta .btn-outline:hover,
+.recurso-card--celeste .btn-outline:hover, .recurso-card--durazno .btn-outline:hover,
+.recurso-card--rosa .btn-outline:hover { background: var(--m-fg); color: var(--m-bg); }
+.recurso-card--azul a:focus-visible, .recurso-card--violeta a:focus-visible,
+.recurso-card--celeste a:focus-visible, .recurso-card--durazno a:focus-visible,
+.recurso-card--rosa a:focus-visible,
+.recurso-card--azul .recurso-ver-mas:focus-visible, .recurso-card--violeta .recurso-ver-mas:focus-visible,
+.recurso-card--celeste .recurso-ver-mas:focus-visible, .recurso-card--durazno .recurso-ver-mas:focus-visible,
+.recurso-card--rosa .recurso-ver-mas:focus-visible { outline: 2px solid var(--m-fg); outline-offset: 2px; }
+
+/* Tarjeta especial "Asistentes IA": varios enlaces apilados dentro de la tarjeta. */
+.recurso-card-multi ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+.recurso-card-multi li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 12px;
+  background: var(--m-link);
+  color: var(--m-fg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background .15s ease;
+}
+.recurso-card-multi li a::after { content: "\2192"; flex-shrink: 0; }
+.recurso-card-multi li a:hover { background: var(--m-link-hover); }
+
+@media (max-width: 600px) {
+  .recursos-grid { grid-template-columns: 1fr; }
+}
