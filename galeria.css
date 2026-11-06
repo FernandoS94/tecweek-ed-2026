@@ -1,0 +1,120 @@
+/* ===== Galería "Así se vivió la Tecweek ED" (carrusel con flechas) ===== */
+
+/* Barra de colores de la marca, pegada al borde de abajo del hero (entre el hero y la galería).
+   La barra ya está en el HTML del hero (.hero-bar) pero no tenía alto, por eso no se veía.
+   Se oculta el tramo violeta (se confundía con el fondo de la galería): quedan 4 colores. */
+.hero { overflow: hidden; }   /* la foto de la docente y su sombra no se pasan del borde del hero */
+.hero-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; z-index: 2; }
+.hero-bar .bar-violeta { display: none; }
+
+.gal {
+  --gal-gap: 22px;
+  background: var(--violeta, #5C0055);
+  color: #fff;
+  padding: 72px 0 80px;
+  overflow: hidden;
+}
+.gal-head { margin-bottom: 40px; }
+.gal-kicker {
+  margin: 0 0 10px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--turquesa, #62CFF6);
+}
+.gal h2 { font-size: clamp(1.9rem, 4.4vw, 3rem); color: #fff; margin-bottom: 14px; }
+.gal-intro { max-width: 560px; line-height: 1.5; color: rgba(255,255,255,.88); }
+
+/* Carrusel: scroll horizontal con ajuste a cada foto; se mueve con las flechas o deslizando. */
+.gal-marquee {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.gal-marquee::-webkit-scrollbar { display: none; }
+.gal-track {
+  display: flex;
+  gap: var(--gal-gap);
+  width: max-content;
+  /* la primera foto arranca alineada con el título */
+  padding: 18px max(24px, calc((100vw - var(--container, 1160px)) / 2 + 24px)) 26px;
+}
+
+.gal-item {
+  flex: 0 0 auto;
+  width: 440px;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius, 18px);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  background: var(--verde, #2763A5);
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+  scroll-snap-align: center;
+}
+button.gal-item { cursor: zoom-in; font: inherit; }
+button.gal-item:focus-visible { outline: 3px solid var(--turquesa, #62CFF6); outline-offset: 3px; }
+.gal-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+button.gal-item:hover img { transform: scale(1.05); }
+
+/* Cuadros de ejemplo, mientras no estén las fotos reales (data-fotos="false") */
+.gal-item--ph { padding: 14px; font-weight: 700; }
+.gal-item--ph:nth-child(3n+1) { background: linear-gradient(135deg, var(--verde, #2763A5), var(--turquesa, #62CFF6)); }
+.gal-item--ph:nth-child(3n+2) { background: linear-gradient(135deg, #8a2a7a, var(--rosa, #EE9CCA)); }
+.gal-item--ph:nth-child(3n)   { background: linear-gradient(135deg, #b46a3c, var(--naranja, #F0C79D)); }
+
+.gal-foot { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.gal-foot [hidden] { display: none !important; }
+.gal-nav { display: flex; gap: 10px; }
+.gal-arrow {
+  display: grid; place-items: center; width: 48px; height: 48px; padding: 0;
+  cursor: pointer; color: #fff; background: transparent;
+  border: 1.5px solid rgba(255,255,255,.6); border-radius: 50%;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.gal-arrow svg { width: 22px; height: 22px; }
+.gal-arrow:hover:not(:disabled) { background: #fff; color: var(--violeta, #5C0055); border-color: #fff; }
+.gal-arrow:focus-visible { outline: 3px solid var(--turquesa, #62CFF6); outline-offset: 3px; }
+.gal-arrow:disabled { opacity: .35; cursor: default; }
+
+/* Foto ampliada */
+.gal-lightbox {
+  width: min(94vw, 1100px);
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius, 18px);
+  background: var(--oscuro, #12121A);
+  color: #fff;
+  overflow: hidden;
+}
+.gal-lightbox::backdrop { background: rgba(18, 18, 26, .86); }
+.gal-lightbox img { display: block; width: 100%; max-height: 82vh; object-fit: contain; background: #000; }
+.gal-lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; }
+.gal-lb-count { font-size: .85rem; color: rgba(255,255,255,.8); }
+.gal-lb-btn {
+  font: inherit; font-size: 1.1rem; line-height: 1; cursor: pointer;
+  color: #fff; background: rgba(255,255,255,.12); border: 0; border-radius: 99px;
+  width: 42px; height: 42px;
+}
+.gal-lb-btn:hover { background: rgba(255,255,255,.26); }
+.gal-lb-btn:focus-visible { outline: 3px solid var(--turquesa, #62CFF6); outline-offset: 2px; }
+
+@media (max-width: 600px) {
+  .gal { --gal-gap: 14px; padding: 52px 0 60px; }
+  .gal-item { width: 300px; }
+}

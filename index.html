@@ -28,6 +28,7 @@
 <meta name="twitter:image" content="https://tecweeked.bue.edu.ar/assets/hero-evento.png">
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="galeria.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -232,7 +233,6 @@
       <a href="https://www.youtube.com/@EducacionDigitalBA" class="header-social link-hide-mobile" target="_blank" rel="noopener" aria-label="Mirá nuestros videos en YouTube">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1.5" y="4" width="21" height="16" rx="5"/><path d="M10 8.7v6.6l6-3.3-6-3.3z" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="https://script.google.com/a/macros/bue.edu.ar/s/AKfycbxxVTCqKhXD4bd1T97dSXKL-B5fesiy_dN_dC29YSe3BNbBQRSwX3jnNb3w070K2A/exec" class="btn btn-primary header-btn-white" target="_blank" rel="noopener">Inscribirme </a>
     </div>
 
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -268,31 +268,6 @@
       <p class="hero-subtitle hero-subtitle-sub">
         Para docentes y toda la comunidad educativa de la Ciudad.
       </p>
-
-
-      <div class="hero-actions">
-        <a href="https://script.google.com/a/macros/bue.edu.ar/s/AKfycbxxVTCqKhXD4bd1T97dSXKL-B5fesiy_dN_dC29YSe3BNbBQRSwX3jnNb3w070K2A/exec" class="btn btn-solid btn-lg" target="_blank" rel="noopener">
-          Inscribirme
-        </a>
-        <a href="https://drive.google.com/file/d/1WtYV8rhqWvKG6lW0gy2pUSgYqkKh8dC3/view?usp=drive_link" class="btn btn-outline btn-lg" target="_blank" rel="noopener">
-          Ver agenda
-        </a>
-      </div>
-
-      <div class="hero-meta">
-        <span class="meta-item">
-          <span class="meta-icon meta-icon-violeta">
-            <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM1 14V4h14v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1m7-6.507c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/></svg>
-          </span>
-          <span>Viernes 30/10<br>8 a 18 h</span>
-        </span>
-        <a class="meta-item meta-item-link" href="https://maps.app.goo.gl/82i5AAPUUEQwPE1t6" target="_blank" rel="noopener">
-          <span class="meta-icon meta-icon-violeta">
-            <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
-          </span>
-          <span>Usina del Arte<br><small>Agustín R. Caffarena 1, CABA</small></span>
-        </a>
-      </div>
     </div>
 
     <div class="hero-media">
@@ -304,39 +279,44 @@
   </div>
 
 
-  <div class="container countdown-wrap">
-    <div class="countdown" id="countdown" aria-live="polite">
-      <p class="countdown-kicker">Faltan</p>
-      <div class="countdown-grid">
-        <div class="countdown-item">
-          <span class="countdown-number" id="cd-days">00</span>
-          <span class="countdown-label">Días</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-item">
-          <span class="countdown-number" id="cd-hours">00</span>
-          <span class="countdown-label">Horas</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-item">
-          <span class="countdown-number" id="cd-minutes">00</span>
-          <span class="countdown-label">Minutos</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-item">
-          <span class="countdown-number" id="cd-seconds">00</span>
-          <span class="countdown-label">Segundos</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 
   <div class="hero-bar" aria-hidden="true">
     <span class="bar-verde"></span><span class="bar-violeta"></span><span class="bar-turquesa"></span><span class="bar-naranja"></span><span class="bar-rosa"></span>
   </div>
 </section>
+
+
+<section class="gal" id="galeria" aria-labelledby="galTitulo"
+         data-total="8" data-carpeta="assets/galeria/" data-ext="webp" data-fotos="true">
+  <div class="container gal-head">
+    
+    <h2 id="galTitulo">Así se vivió la 3° edición de la Tecweek ED</h2>
+    <p class="gal-intro">Un día para explorar, crear, aprender y encontrarse. Estos son algunos momentos.</p>
+  </div>
+
+  <div class="gal-marquee">
+    <div class="gal-track" id="galTrack"></div>
+  </div>
+
+  <div class="container gal-foot">
+    <div class="gal-nav">
+      <button type="button" class="gal-arrow" id="galPrev" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="gal-arrow" id="galNext" aria-label="Fotos siguientes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <!-- Cuando esté el álbum completo: sacar "hidden" y poner el link real en href. -->
+    <a href="#" class="btn btn-outline-claro" target="_blank" rel="noopener" hidden>Ver todas las fotos</a>
+  </div>
+</section>
+
+<dialog class="gal-lightbox" id="galLightbox" aria-label="Foto ampliada">
+  <img src="" alt="">
+  <div class="gal-lb-bar">
+    <button type="button" class="gal-lb-btn" data-gal-prev aria-label="Foto anterior">&#8592;</button>
+    <span class="gal-lb-count" aria-live="polite"></span>
+    <button type="button" class="gal-lb-btn" data-gal-next aria-label="Foto siguiente">&#8594;</button>
+    <button type="button" class="gal-lb-btn" data-gal-close aria-label="Cerrar">&#10005;</button>
+  </div>
+</dialog>
 
 
 <section class="section ejes">
@@ -802,7 +782,6 @@
       <h3 class="footer-heading">Explorar Tecweek ED</h3>
       <ul class="footer-links">
         <li><a href="#top">Inicio</a></li>
-        <li><a href="https://script.google.com/a/macros/bue.edu.ar/s/AKfycbxxVTCqKhXD4bd1T97dSXKL-B5fesiy_dN_dC29YSe3BNbBQRSwX3jnNb3w070K2A/exec" target="_blank" rel="noopener">Inscribirme</a></li>
         <li><a href="https://drive.google.com/file/d/1WtYV8rhqWvKG6lW0gy2pUSgYqkKh8dC3/view?usp=drive_link" target="_blank" rel="noopener">Agenda</a></li>
       </ul>
     </div>
@@ -823,5 +802,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="galeria.js" defer></script>
 </body>
 </html>
