@@ -118,3 +118,28 @@ button.gal-item:hover img { transform: scale(1.05); }
   .gal { --gal-gap: 14px; padding: 52px 0 60px; }
   .gal-item { width: 300px; }
 }
+
+
+/* ===== Hero con video (resumen del evento) ===== */
+.hero--video { padding: 44px 0 64px; }
+.hero-vid { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hero--video .hero-title { margin-bottom: 14px; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0; line-height: 1.1; font-size: clamp(1.9rem, 4.4vw, 3rem); }  /* igual al título de la galería (.gal h2) */
+.hero-vid-sub { max-width: 620px; margin: 0 auto 26px; font-size: 1.05rem; }
+
+.hero-video {
+  position: relative;
+  /* grande, pero que en una notebook entre completo en la primera pantalla */
+  width: min(1112px, 100%, max(720px, calc((100vh - 285px) * 16 / 9)));
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius, 18px);
+  overflow: hidden;
+  background: #12121A;
+  box-shadow: 0 24px 56px rgba(0,0,0,.4);
+}
+.hero-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
+@media (max-width: 600px) {
+  .hero--video { padding: 40px 0 52px; }
+  .hero-vid-sub { font-size: .98rem; margin-bottom: 20px; }
+  .hero-video { border-radius: 14px; }
+}
