@@ -216,3 +216,44 @@
 .videos-playlist { text-align: center; margin: 36px 0 0; }
 .video-card[hidden] { display: none; }
 .video-card--sin-miniatura .video-body { padding-top: 20px; }
+
+/* ===== Videos en formato lista (una fila por video: miniatura | texto | botón) ===== */
+.video-grid { grid-template-columns: 1fr; gap: 12px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+.video-card { display: grid; grid-template-columns: 224px minmax(0, 1fr) auto; align-items: center; column-gap: 20px; }
+.video-card .recurso-thumb { width: 224px; align-self: stretch; aspect-ratio: auto; min-height: 126px; height: 100%; }
+.video-body { display: contents; }
+.video-card .video-tag, .video-card h3, .video-card .video-desc { grid-column: 2; }
+.video-card .video-tag { align-self: end; padding-top: 14px; }
+.video-card h3 { font-size: 1.05rem; line-height: 1.3; }
+.video-card .video-desc { align-self: start; margin-bottom: 14px; flex: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.video-card .btn { grid-column: 3; grid-row: 1 / span 3; margin: 0 22px 0 0; align-self: center; white-space: nowrap; }
+.video-card .video-body .btn, .video-body .video-desc + .btn { margin: 0 22px 0 0; }
+.video-card .recurso-thumb { grid-column: 1; grid-row: 1 / span 3; }
+.video-card--sin-miniatura { grid-template-columns: minmax(0, 1fr) auto; }
+.video-card--sin-miniatura .video-tag, .video-card--sin-miniatura h3, .video-card--sin-miniatura .video-desc { grid-column: 1; padding-left: 22px; }
+.video-card--sin-miniatura .btn { grid-column: 2; }
+@media (max-width: 760px) {
+  .video-card { grid-template-columns: 136px minmax(0, 1fr); column-gap: 14px; }
+  .video-card .recurso-thumb { width: 136px; min-height: 0; grid-row: 1 / span 3; }
+  .video-card .video-tag { padding-top: 12px; }
+  .video-card h3 { font-size: .95rem; }
+  .video-card .video-desc { display: none; }
+  .video-card .btn, .video-card .video-body .btn { grid-column: 2; grid-row: auto; justify-self: start; margin: 4px 0 12px; padding: 8px 14px; font-size: .85rem; }
+  .video-card--sin-miniatura { grid-template-columns: minmax(0, 1fr); }
+  .video-card--sin-miniatura .video-tag, .video-card--sin-miniatura h3, .video-card--sin-miniatura .btn { grid-column: 1; padding-left: 18px; margin-left: 0; }
+}
+
+/* Las miniaturas de video traen un marco negro con esquinas redondeadas: se ven como imagen "inserta" (proporción 16:9, esquinas propias)
+   y se amplía apenas, con distinta escala en cada eje, para que el recorte esconda el marco sin cortar textos ni logos. */
+.video-card { padding: 12px 0 12px 12px; }
+.video-card .recurso-thumb { overflow: hidden; border-radius: 12px; width: 224px; height: auto; min-height: 0; aspect-ratio: 16 / 9; align-self: center; background: var(--m-bg); }
+.video-card .recurso-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.06, 1.11); transform-origin: center; }
+.video-card .video-tag { padding-top: 0; }
+.video-card .video-desc { margin-bottom: 0; }
+.video-card--sin-miniatura { padding: 14px 0 14px 0; }
+@media (max-width: 760px) {
+  .video-card { padding: 10px 10px 10px 10px; }
+  .video-card .recurso-thumb { width: 136px; border-radius: 10px; }
+  .video-card .video-tag { padding-top: 0; }
+  .video-card .btn, .video-card .video-body .btn { margin: 4px 0 0; }
+}
