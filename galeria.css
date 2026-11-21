@@ -144,13 +144,9 @@ button.gal-item:hover img { transform: scale(1.05); }
   .hero-video { border-radius: 14px; }
 }
 
-/* ===== Botones de acceso a Recursos (debajo del video del inicio) ===== */
-.hero-recursos { margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
-.hero-recursos-title { margin: 0; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .02em; font-weight: 400; font-size: clamp(1.15rem, 2.2vw, 1.5rem); color: #fff; }
-.hero-recursos-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.hero-recursos-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; background: #fff; color: #1A1A22; font-weight: 700; font-size: .98rem; text-decoration: none; box-shadow: 0 8px 22px rgba(0,0,0,.35); transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
-.hero-recursos-btn:hover, .hero-recursos-btn:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,.45); background: var(--m, #62CFF6); }
-.hero-recursos-btn .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--m, #62CFF6); flex: none; }
-.hero-recursos-btn:hover .dot { background: #1A1A22; }
-@media (prefers-reduced-motion: reduce) { .hero-recursos-btn { transition: none; } .hero-recursos-btn:hover { transform: none; } }
-@media (max-width: 600px) { .hero-recursos { margin-top: 24px; } .hero-recursos-list { gap: 10px; } .hero-recursos-btn { padding: 11px 18px; font-size: .92rem; } }
+/* ===== Botón "Reviví la Tecweek ED" (debajo del video del inicio) ===== */
+.hero-revivi { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 28px; padding: 14px 28px; border-radius: 999px; background: #fff; color: #1A1A22; font-weight: 700; font-size: 1.05rem; text-decoration: none; box-shadow: 0 8px 22px rgba(0,0,0,.35); transition: transform .18s ease, box-shadow .18s ease; }
+.hero-revivi:hover, .hero-revivi:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,.45); }
+.hero-revivi .ico-yt { flex: none; }
+@media (prefers-reduced-motion: reduce) { .hero-revivi { transition: none; } .hero-revivi:hover { transform: none; } }
+@media (max-width: 600px) { .hero-revivi { margin-bottom: 22px; padding: 12px 22px; font-size: .98rem; } }
