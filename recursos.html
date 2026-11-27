@@ -390,7 +390,7 @@
         <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming.webp" alt="" width="1280" height="853" decoding="async" onerror="this.remove()"></div>
         <h2>Streaming</h2>
         <p>Una transmisión durante toda la jornada con especialistas, referentes, docentes y estudiantes para conversar sobre los temas que están transformando la educación.</p>
-        <span class="btn btn-outline is-pending" aria-disabled="true">Próximamente</span>
+        <a href="#videos-streaming" class="btn btn-outline">Ver streaming <svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </article>
       </div>
       <p class="videos-playlist"><a href="https://www.youtube.com/playlist?list=PLb0Fks_jhLNk" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver la playlist completa de Tecweek ED 2026</a></p>
@@ -407,7 +407,7 @@
       <a href="#videos" class="rback"><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg> Volver a Videos</a>
       <h2 id="videos-charlas-t" tabindex="-1">Charlas TEC</h2>
       <p>Destacados referentes en educación, tecnología e innovación comparten ideas y experiencias para pensar la educación del presente y del futuro.</p>
-      <nav class="rnav" aria-label="Ir a otra categoría de videos"><a href="#videos-charlas" aria-current="true">Charlas TEC</a><a href="#videos-foro">Foro TEC</a></nav>
+      <nav class="rnav" aria-label="Ir a otra categoría de videos"><a href="#videos-charlas" aria-current="true">Charlas TEC</a><a href="#videos-foro">Foro TEC</a><a href="#videos-streaming">Streaming</a></nav>
     </div>
   </section>
   <section class="section recursos-list">
@@ -501,7 +501,7 @@
       <a href="#videos" class="rback"><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg> Volver a Videos</a>
       <h2 id="videos-foro-t" tabindex="-1">Foro TEC</h2>
       <p>Paneles y conversaciones sobre proyectos y experiencias que están transformando las formas de enseñar y aprender con tecnologías.</p>
-      <nav class="rnav" aria-label="Ir a otra categoría de videos"><a href="#videos-charlas">Charlas TEC</a><a href="#videos-foro" aria-current="true">Foro TEC</a></nav>
+      <nav class="rnav" aria-label="Ir a otra categoría de videos"><a href="#videos-charlas">Charlas TEC</a><a href="#videos-foro" aria-current="true">Foro TEC</a><a href="#videos-streaming">Streaming</a></nav>
     </div>
   </section>
   <section class="section recursos-list">
@@ -560,6 +560,188 @@
             <h3>Las pistas están ahí. Datos para entender cómo aprendemos</h3>
             <p class="video-desc">Conversación sobre cómo utilizar los datos del sistema educativo para comprender mejor los aprendizajes y las trayectorias escolares. Se explora cómo la tecnología y la inteligencia artificial permiten identificar patrones, anticipar necesidades y tomar decisiones para mejorar la educación.</p>
             <a href="https://youtu.be/u08EwdMmyrg" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+      </div>
+      <p class="recursos-empty" data-vempty hidden>No encontramos videos con esa búsqueda. Probá con otra palabra.</p>
+    </div>
+  </section>
+  <div class="container rback-foot">
+    <a href="#videos" class="btn btn-outline"><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg> Volver a Videos</a>
+  </div>
+</div>
+
+<div class="recursos-panel is-off" id="videos-streaming" aria-labelledby="videos-streaming-t">
+  <section class="recursos-hero recursos-subhero">
+    <div class="container">
+      <a href="#videos" class="rback"><svg class="ico-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg> Volver a Videos</a>
+      <h2 id="videos-streaming-t" tabindex="-1">Streaming</h2>
+      <p>Una transmisión durante toda la jornada con especialistas, referentes, docentes y estudiantes para conversar sobre los temas que están transformando la educación.</p>
+      <nav class="rnav" aria-label="Ir a otra categoría de videos"><a href="#videos-charlas">Charlas TEC</a><a href="#videos-foro">Foro TEC</a><a href="#videos-streaming" aria-current="true">Streaming</a></nav>
+    </div>
+  </section>
+  <section class="section recursos-list">
+    <div class="container">
+      <div class="recursos-filter">
+        <div class="recursos-filter-field">
+          <label for="vbusq-streaming">Buscar por video</label>
+          <input type="search" id="vbusq-streaming" data-vsearch placeholder="Ej: IA, protección digital…" autocomplete="off">
+        </div>
+      </div>
+      <p class="recursos-count" data-vcount aria-live="polite">Mostrando 19 de 19 videos.</p>
+      
+      <div class="video-grid" data-vgrid>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-01.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 1</span>
+            <h3>Habitar el mundo en tiempos de IA con Florencia Sichel</h3>
+            <a href="https://youtu.be/x-ZG5_XH_nY" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-02.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 2</span>
+            <h3>Centro de simulación: formación innovadora para el mundo productivo</h3>
+            <a href="https://youtu.be/1BOk7nSLqlI" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-03.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 3</span>
+            <h3>CosmoEmotion: proyectos con IA con estudiantes de Escuela Estación BA</h3>
+            <a href="https://youtu.be/JgeK2dPw8sw" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-04.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 5</span>
+            <h3>Protección digital en casa y en la escuela con Lucía Fainboim y Celeste Mora</h3>
+            <a href="https://youtu.be/v4aF_eYwdcw" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-05.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 6</span>
+            <h3>El lugar de los chicos en el mundo digital con Soledad Gutiérrez Eguía y Noelia Vega de Chicas en Tecnología</h3>
+            <a href="https://youtu.be/UjvayAjUefU" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-06.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 7</span>
+            <h3>¿Qué y cómo se enseña en las escuelas intensificadas en nuevas tecnologías?</h3>
+            <a href="https://www.youtube.com/watch?v=UjvayAjUefU&amp;list=PLb0Fks_jhLNk&amp;index=19" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-07.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 8</span>
+            <h3>Enseñar y aprender con IA con Santi Siri</h3>
+            <a href="https://youtu.be/HuXbmU8DWrQ" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-08.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 10</span>
+            <h3>Proyectos creativos en la era de la IA con Mario Efron y María Marta Fernández</h3>
+            <a href="https://youtu.be/GQU6hkZERls" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-09.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 11</span>
+            <h3>¿Qué y cómo se enseña en la escuela «Estación Buenos Aires»?</h3>
+            <a href="https://youtu.be/PWerTpxN_OU" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-10.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 13</span>
+            <h3>La atención en un mundo de pantallas con Carolina Duek</h3>
+            <a href="https://youtu.be/U5CObSW-oLA" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-11.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 14</span>
+            <h3>Literatura en tiempos de IA con Karina Wainschenker</h3>
+            <a href="https://youtu.be/SIz5dmKQ468" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-12.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 16</span>
+            <h3>Docentes embajadores en IA</h3>
+            <a href="https://youtu.be/fbqBXudKD9I" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-13.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 18</span>
+            <h3>Ágora IA: estudiantes que transforman la Ciudad</h3>
+            <a href="https://youtu.be/TQPvbUUcSfs" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-14.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 19</span>
+            <h3>Nuevas formas de aprender con tecnologías: Centros TUMO</h3>
+            <a href="https://youtu.be/TQPvbUUcSfs" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-15.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 20</span>
+            <h3>Tecnologías para el diseño de experiencias de aprendizaje</h3>
+            <a href="https://youtu.be/PX54p8DfyJI" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-16.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 21</span>
+            <h3>Posibilidades de la IA en educación</h3>
+            <a href="https://youtu.be/6PlEoYiIoWo" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-17.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 22</span>
+            <h3>Buenos Aires DAR: estrategias innovadoras para acompañar trayectorias educativas</h3>
+            <a href="https://youtu.be/oLfCyt-zipI" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-18.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 23</span>
+            <h3>La IA en la universidad</h3>
+            <p class="video-desc">Participan Oscar Ghillione (Subsecretario de Planeamiento e Innovación Educativa del Ministerio de Educación de la Ciudad), Samanta Bonelli (Directora Ejecutiva de la Unidad de Evaluación Integral de la Calidad y Equidad Educativa del Ministerio de Educación de la Ciudad), Juan Nesis (ITBA) y Santiago Bellomo (Universidad Austral).</p>
+            <a href="https://youtu.be/krcRaJXqN28" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
+          </div>
+        </article>
+        <article class="video-card video-card--stream recurso-card--celeste">
+          <div class="recurso-thumb" aria-hidden="true"><img src="assets/recursos/videos/streaming-19.webp" alt="" width="1280" height="715" loading="lazy" decoding="async" onerror="this.remove()"></div>
+          <div class="video-body">
+            <span class="video-tag">Bloque 24</span>
+            <h3>IA: una mirada desde la ciencia con Fabricio Ballarini</h3>
+            <a href="https://youtu.be/DYBhfof32V4" class="btn btn-outline" target="_blank" rel="noopener"><svg class="ico-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg> Ver video</a>
           </div>
         </article>
       </div>

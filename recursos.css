@@ -240,3 +240,6 @@
 .video-card .video-body .btn { margin-top: auto; }
 .video-card .video-desc ~ .btn, .video-card .video-more ~ .btn { margin-top: auto; }
 .video-card .video-body { gap: 8px; }
+
+/* Streaming: las miniaturas no traen marco negro, no se amplían */
+.video-card--stream .recurso-thumb img { transform: none; }
